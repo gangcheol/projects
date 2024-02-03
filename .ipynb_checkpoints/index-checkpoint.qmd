@@ -25,7 +25,7 @@ title-block-banner: true
 * [Introduction to Python](https://gangcheol.github.io/mysite/posts/Lecture/IP/2023-08-01-01wk.html)
 
 * [Special Topics in Big Data Analysis](https://gangcheol.github.io/mysite/posts/Lecture/STBD/2022-03-08-(1%EC%A3%BC%EC%B0%A8).html)
-s
+
 * [Special Topics in Machine Learning](https://gangcheol.github.io/mysite/posts/Lecture/STML/2022-01-27-Intro.html)
 
 * [Tableau Practice](https://gangcheol.github.io/TI2023/)

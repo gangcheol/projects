@@ -132,6 +132,10 @@ about:
 
 * [Algorithm Study](https://gangcheol.github.io/IA2023/)
 
+<span style = "font-family : NanumSquare; font-size : 1em; color : Fuchsia"> **5. Projects**</span>
+
+* [Mini Project 1 : 행동 데이터 분류 AI 모델링](https://gangcheol.github.io/projects/posts/mini%20projects/2023-09-20-00%20.%20Fine%20Watch.html)
+
 :::
 
 ### 
