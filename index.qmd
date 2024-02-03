@@ -1,0 +1,62 @@
+---
+title: "Portfolio"
+listing:
+  contents: posts
+  sort: [date desc, title]
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: true
+  page-size : 9999
+page-layout: full
+title-block-banner: true
+---
+
+**links**
+
+::: {.panel-tabset}
+
+## lecture
+
+* [R for Data Science](https://gangcheol.github.io/mysite/posts/Lecture/RFD/%ED%86%B5%EA%B3%84%EB%B6%84%EC%84%9D/2021-06-01-01.%20sampling.html)
+
+* [Special Topics in Data Visualization](https://gangcheol.github.io/mysite/posts/Lecture/STDV/2023-02-24-boxplot,%20histogram.html)
+
+* [Introduction to Python](https://gangcheol.github.io/mysite/posts/Lecture/IP/2023-08-01-01wk.html)
+
+* [Special Topics in Big Data Analysis](https://gangcheol.github.io/mysite/posts/Lecture/STBD/2022-03-08-(1%EC%A3%BC%EC%B0%A8).html)
+s
+* [Special Topics in Machine Learning](https://gangcheol.github.io/mysite/posts/Lecture/STML/2022-01-27-Intro.html)
+
+* [Tableau Practice](https://gangcheol.github.io/TI2023/)
+
+* [DX Consultant Education](https://gangcheol.github.io/mysite2/)
+
+## Study
+
+* [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+
+* [Algorithm Study](https://gangcheol.github.io/IA2023/)
+
+
+## mini projects
+
+* [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+
+* [Algorithm Study](https://gangcheol.github.io/IA2023/)
+
+## big projects
+
+* [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+
+* [Algorithm Study](https://gangcheol.github.io/IA2023/)
+
+## publications
+
+* [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+
+* [Algorithm Study](https://gangcheol.github.io/IA2023/)
+
+
+
+:::
