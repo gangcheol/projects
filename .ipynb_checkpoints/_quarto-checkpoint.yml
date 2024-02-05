@@ -15,11 +15,12 @@ website:
     
 format:
   html:
+    code-fold : False
     css: styles.css
     toc: true
-    code-fold : False
     code-line-numbers : True
     code-copy : True
+
 
 theme :
   light : cosmos

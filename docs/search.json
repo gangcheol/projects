@@ -1,14 +1,119 @@
 [
   {
-    "objectID": "posts/mini projects/2023-09-20-00 . Fine Watch.html",
-    "href": "posts/mini projects/2023-09-20-00 . Fine Watch.html",
-    "title": "00. Fine Watch 행동 데이터 분류 AI 모델링",
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html",
+    "title": "00. EDA & Modeling",
     "section": "",
-    "text": "개요\n1 출시될 시제품에서 수집한 데이터를 바탕으로 6가지 행동 검토 후 ’계단오르기’를 분류할 수 있는 AI 모델 생성 및 중요도 상위 Feature 선별",
+    "text": "1 Fine Watch의 행동 데이터 분류 AI 모델링 요청\n2 출시될 시제품에서 수집한 데이터를 바탕으로 6가지 행동 검토 후 계단오르기를 분류할 수 있는 AI 모델 생성 및 중요도 상위 Feature 선별\n\n6가지 행동 패턴 : STANDING, SITTING, LAYING, WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS\n\n3 데이터 설명\n\nFine Watch 23 시제품에서 수집한 데이터\n가속도 센서 데이터 : 일직선으로 움직이는 물체의 선형가속도를 측정하는 센서 데이터\n자이로스코프 센서 데이터 : 회전하는 물체의 각속도를 측정하는 센서 데이터",
     "crumbs": [
       "Posts",
       "mini projects",
-      "00. Fine Watch 행동 데이터 분류 AI 모델링"
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#feature-데이터-로드",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#feature-데이터-로드",
+    "title": "00. EDA & Modeling",
+    "section": "(1) feature 데이터 로드",
+    "text": "(1) feature 데이터 로드\n\nfeatures = pd.read_csv(\"f.csv\")\nfeatures.head()\n\n\n\n\n\n\n\n\nsensor\nagg\naxis\nfeature_name\n\n\n\n\n0\ntBodyAcc\nmean()\nX\ntBodyAcc-mean()-X\n\n\n1\ntBodyAcc\nmean()\nY\ntBodyAcc-mean()-Y\n\n\n2\ntBodyAcc\nmean()\nZ\ntBodyAcc-mean()-Z\n\n\n3\ntBodyAcc\nstd()\nX\ntBodyAcc-std()-X\n\n\n4\ntBodyAcc\nstd()\nY\ntBodyAcc-std()-Y",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#고유값-확인",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#고유값-확인",
+    "title": "00. EDA & Modeling",
+    "section": "(2) 고유값 확인",
+    "text": "(2) 고유값 확인\n\nfeatures.sensor.value_counts()\n\nsensor\nfBodyGyro               79\nfBodyAcc                79\nfBodyAccJerk            79\ntBodyAcc                40\ntBodyAccJerk            40\ntBodyGyro               40\ntBodyGyroJerk           40\ntGravityAcc             40\nfBodyBodyGyroJerkMag    13\nfBodyBodyGyroMag        13\nfBodyBodyAccJerkMag     13\nfBodyAccMag             13\ntBodyGyroJerkMag        13\ntBodyGyroMag            13\ntBodyAccJerkMag         13\ntGravityAccMag          13\ntBodyAccMag             13\nangle                    7\nName: count, dtype: int64\n\n\n\nfeatures[\"feature_name\"].value_counts()\n\nfeature_name\nfBodyGyro-bandsEnergy()-25,32    3\nfBodyGyro-bandsEnergy()-49,56    3\nfBodyGyro-bandsEnergy()-25,48    3\nfBodyGyro-bandsEnergy()-1,24     3\nfBodyGyro-bandsEnergy()-49,64    3\n                                ..\ntBodyGyroJerk-min()-X            1\ntBodyGyroJerk-max()-Z            1\ntBodyGyroJerk-max()-Y            1\ntBodyGyroJerk-max()-X            1\nangle(Z,gravityMean)             1\nName: count, Length: 533, dtype: int64\n\n\n\nfeatures[\"agg\"].value_counts()\n\nagg\nbandsEnergy()        126\narCoeff()             60\nmean()                33\nmad()                 33\nmax()                 33\nmin()                 33\nenergy()              33\niqr()                 33\nentropy()             33\nstd()                 33\nsma()                 17\ncorrelation()         15\nmeanFreq()            13\nkurtosis()            13\nskewness()            13\nmaxInds               13\narCoeff()3             5\narCoeff()4             5\narCoeff()2             5\narCoeff()1             5\ntBodyAccMean           1\ntBodyAccJerkMean       1\ntBodyGyroMean          1\ntBodyGyroJerkMean      1\nX                      1\nY                      1\nZ                      1\nName: count, dtype: int64\n\n\n\nfeatures[\"axis\"].value_counts()\n\naxis\nX              76\nY              76\nZ              76\ngravityMean     6\nX,2             5\n               ..\n25,32.1         2\n17,24.1         2\n1,8.1           2\n9,16.1          2\ngravity         1\nName: count, Length: 62, dtype: int64",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#데이터-셋-나누기",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#데이터-셋-나누기",
+    "title": "00. EDA & Modeling",
+    "section": "(0) 데이터 셋 나누기",
+    "text": "(0) 데이터 셋 나누기\n\ny = data[target]\nx = data.drop(target, axis = 1)\n\nx_train, x_val, y_train, y_val = train_test_split(x,y, test_size = 0.3, random_state = 2023)      \n\n- 각 모델의 비교를 위한 데이터 프레임 생성\n\nmodel_name = []\nvalid_data = []\naccuracy_score = []\nF1_score = []\nresult = pd.DataFrame([model_name,valid_data,accuracy_score,F1_score]).T\nresult.columns = ['model_name', 'valid_data', 'accuracy_score', 'F1_score']\nresult\n\n\n\n\n\n\n\n\nmodel_name\nvalid_data\naccuracy_score\nF1_score",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#svm",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#svm",
+    "title": "00. EDA & Modeling",
+    "section": "(1) SVM",
+    "text": "(1) SVM\n\nfrom sklearn.svm import SVC\n\n\nsvc_model = SVC(random_state  = 2023)\nsvc_model.fit(x_train, y_train)\nsvc_pred = svc_model.predict(x_val)\n#svc_pred",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#logistic",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#logistic",
+    "title": "00. EDA & Modeling",
+    "section": "(2) Logistic",
+    "text": "(2) Logistic\n\nfrom sklearn.linear_model import LogisticRegression\n\nlr_model = LogisticRegression(random_state=2023)\nlr_model.fit(x_train, y_train)\nlr_pred = lr_model.predict(x_val)\n\nC:\\Users\\rkdcj\\anaconda3\\envs\\dx\\Lib\\site-packages\\sklearn\\linear_model\\_logistic.py:460: ConvergenceWarning:\n\nlbfgs failed to converge (status=1):\nSTOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\n\nIncrease the number of iterations (max_iter) or scale the data as shown in:\n    https://scikit-learn.org/stable/modules/preprocessing.html\nPlease also refer to the documentation for alternative solver options:\n    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\n\n\n\n\nresult.loc[1,:] = ['lr', 'train', np.mean(y_val == lr_pred), f1_score(y_val,lr_pred, average = \"macro\")]\nresult\n\n\n\n\n\n\n\n\nmodel_name\nvalid_data\naccuracy_score\nF1_score\n\n\n\n\n1\nlr\ntrain\n0.984136\n0.985601",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#knn",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#knn",
+    "title": "00. EDA & Modeling",
+    "section": "(3) KNN",
+    "text": "(3) KNN\n\nfrom sklearn.neighbors import KNeighborsClassifier\n\n\nknn_model = KNeighborsClassifier(n_neighbors=3)\nknn_model.fit(x_train, y_train)\nknn_pred = knn_model.predict(x_val)\n\n\nresult.loc[2] = [\"knn\",\"train\",np.mean(knn_pred == y_val), f1_score(y_val,knn_pred, average = \"macro\")] \nresult\n\n\n\n\n\n\n\n\nmodel_name\nvalid_data\naccuracy_score\nF1_score\n\n\n\n\n1\nlr\ntrain\n0.984136\n0.985601\n\n\n2\nknn\ntrain\n0.954674\n0.958345",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#gbm",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#gbm",
+    "title": "00. EDA & Modeling",
+    "section": "(4) GBM",
+    "text": "(4) GBM\n\nfrom sklearn.ensemble import GradientBoostingClassifier\n\n\ngbc_model = GradientBoostingClassifier(random_state = 2023)\ngbc_model.fit(x_train,y_train)\ngbc_pred = gbc_model.predict(x_val)\n\n\nresult.loc[3] = [\"gbc\",\"train\",np.mean(gbc_pred == y_val), f1_score(y_val, gbc_pred, average = \"macro\")]\nresult\n\n\n\n\n\n\n\n\nmodel_name\nvalid_data\naccuracy_score\nF1_score\n\n\n\n\n1\nlr\ntrain\n0.984136\n0.985601\n\n\n2\nknn\ntrain\n0.954674\n0.958345\n\n\n3\ngbc\ntrain\n0.981870\n0.983141",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#xgb",
+    "href": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html#xgb",
+    "title": "00. EDA & Modeling",
+    "section": "(5) XGB",
+    "text": "(5) XGB\n\nfrom xgboost import XGBClassifier\n\ndic = {'LAYING' : 2,\n 'SITTING' : 1,\n 'STANDING' : 0,\n 'WALKING' : 3,\n 'WALKING_DOWNSTAIRS' : 4,\n 'WALKING_UPSTAIRS': 5}\n\ny_train_map = [dic[i] for i in y_train]\ny_val_map =  [dic[i] for i in y_val]                                                                     \n\n\nxgb_model = XGBClassifier(learning_rate=0.2, max_depth=2, random_state=2023)\n\nxgb_model.fit(x_train,y_train_map)\n\nxgb_pred = xgb_model.predict(x_val)\n\nresult.loc[5] =  [\"xgb\", \"train\", np.mean(xgb_pred == y_val_map), f1_score(y_val_map, xgb_pred, average = \"macro\")]\nresult\n\n\n\n\n\n\n\n\nmodel_name\nvalid_data\naccuracy_score\nF1_score\n\n\n\n\n1\nlr\ntrain\n0.984136\n0.985601\n\n\n2\nknn\ntrain\n0.954674\n0.958345\n\n\n3\ngbc\ntrain\n0.981870\n0.983141\n\n\n5\nxgb\ntrain\n0.990368\n0.991178",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Watch",
+      "00. EDA & Modeling"
     ]
   },
   {
@@ -16,7 +121,7 @@
     "href": "index.html",
     "title": "Portfolio",
     "section": "",
-    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n\nR for Data Science\nSpecial Topics in Data Visualization\nIntroduction to Python\nSpecial Topics in Big Data Analysis\nSpecial Topics in Machine Learning\nTableau Practice\nDX Consultant Education\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n00. Fine Watch 행동 데이터 분류 AI 모델링\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
+    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n\nR for Data Science\nSpecial Topics in Data Visualization\nIntroduction to Python\nSpecial Topics in Big Data Analysis\nSpecial Topics in Machine Learning\nTableau Practice\nDX Consultant Education\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html#contact",
