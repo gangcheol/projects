@@ -147,7 +147,7 @@
     "href": "posts/mini projects/Fine Watch/2023-09-20-00. model tuning, save.html#model-save",
     "title": "01. model tuning & save",
     "section": "(5) model save",
-    "text": "(5) model save\n- 최적의 성능을 보인 모델저장\n\nhpt_xgb 모델저장\n\n\nimport joblib\n\njoblib.dump(hpt_xgb_model, \"hpt_xgb_top_model.pkl\")\n\n['hpt_xgb_top_model.pkl']\n\n\n\n저장한 모델 로드\n\n\nfinal_model = joblib.load(\"hpt_xgb_top_model.pkl\")\n\n\nfinal_pred = final_model.predict(x_val)\n\n\ndic.items()\n\ndict_items([('STANDING', 0), ('SITTING', 1), ('LAYING', 2), ('WALKING', 3), ('WALKING_UPSTAIRS', 4), ('WALKING_DOWNSTAIRS', 5)])\n\n\n\ndic_reverse = {j : i for i,j in dic.items()}\n\n\npd.Series(final_pred).map(dic_reverse).to\n\n0        WALKING\n1       STANDING\n2         LAYING\n3        SITTING\n4         LAYING\n          ...   \n1760     SITTING\n1761    STANDING\n1762     WALKING\n1763     WALKING\n1764      LAYING\nLength: 1765, dtype: object",
+    "text": "(5) model save\n- 최적의 성능을 보인 모델저장\n\nhpt_xgb 모델저장\n\n\nimport joblib\n\njoblib.dump(hpt_xgb_model, \"hpt_xgb_top_model.pkl\")\n\n['hpt_xgb_top_model.pkl']\n\n\n\n저장한 모델 로드\n\n\nfinal_model = joblib.load(\"hpt_xgb_top_model.pkl\")\n\n\n예측결과 저장\n\n\nfinal_pred = final_model.predict(x_val)\n\n\ndic.items()\n\ndict_items([('STANDING', 0), ('SITTING', 1), ('LAYING', 2), ('WALKING', 3), ('WALKING_UPSTAIRS', 4), ('WALKING_DOWNSTAIRS', 5)])\n\n\n\ndic_reverse = {j : i for i,j in dic.items()}\n\n\npd.Series(final_pred).map(dic_reverse).to_csv(\"final_predict.csv\", index = False)",
     "crumbs": [
       "Posts",
       "mini projects",
@@ -305,7 +305,7 @@
     "href": "index.html",
     "title": "Portfolio",
     "section": "",
-    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n\nR for Data Science\nSpecial Topics in Data Visualization\nIntroduction to Python\nSpecial Topics in Big Data Analysis\nSpecial Topics in Machine Learning\nTableau Practice\nDX Consultant Education\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
+    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n1 R for Data Science\n2 Special Topics in Data Visualization\n3 Introduction to Python\n4 Special Topics in Big Data Analysis\n5 Special Topics in Machine Learning\n6 Tableau Practice\n7 DX Consultant Education\n\n\n1 ISLP Study\n2 Algorithm Study\n\n\n1 mini project1 : Fine Watch 계단오르기 행동감지 모델링링\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n1 데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n2 핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html",

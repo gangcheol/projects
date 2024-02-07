@@ -1386,6 +1386,9 @@ if (outputEl) {{
 <div id="06f5113c-3e4d-4007-9472-abe5f4ce92fb" class="cell" data-tags="[]" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>final_model <span class="op">=</span> joblib.load(<span class="st">"hpt_xgb_top_model.pkl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>예측결과 저장</li>
+</ul>
 <div id="1bb83358-8c80-4a10-abba-42df383d03f6" class="cell" data-tags="[]" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>final_pred <span class="op">=</span> final_model.predict(x_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1398,22 +1401,8 @@ if (outputEl) {{
 <div id="95d3046d-01dd-404c-88a3-3d4b1c899aa0" class="cell" data-tags="[]" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>dic_reverse <span class="op">=</span> {j : i <span class="cf">for</span> i,j <span class="kw">in</span> dic.items()}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="485e45f3-81c8-45ee-9383-f73dca6d3468" class="cell" data-tags="[]" data-execution_count="75">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>pd.Series(final_pred).<span class="bu">map</span>(dic_reverse).to</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
-<pre><code>0        WALKING
-1       STANDING
-2         LAYING
-3        SITTING
-4         LAYING
-          ...   
-1760     SITTING
-1761    STANDING
-1762     WALKING
-1763     WALKING
-1764      LAYING
-Length: 1765, dtype: object</code></pre>
-</div>
+<div id="485e45f3-81c8-45ee-9383-f73dca6d3468" class="cell" data-tags="[]" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>pd.Series(final_pred).<span class="bu">map</span>(dic_reverse).to_csv(<span class="st">"final_predict.csv"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
