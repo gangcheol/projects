@@ -41,7 +41,11 @@ title-block-banner: true
 
 ## mini projects
 
-`1` [mini project1 :  Fine Watch 계단오르기 행동감지 모델링](https://gangcheol.github.io/projects/posts/mini%20projects/Fine%20Watch/2023-09-20-00%20.%20EDA%20,%20modeling.html)
+`1` [mini project1 :  Fine Watch, 계단오르기 행동감지 모델링](https://gangcheol.github.io/projects/posts/mini%20projects/Fine%20Watch/2023-09-20-00%20.%20EDA%20,%20modeling.html)
+
+`2` [mini project2 :  Fine Apple, 군집분석을 통한 고객 segment 개발](https://gangcheol.github.io/projects/posts/mini%20projects/Fine%20Apple/2023-09-26-00.%20EDA.html)
+
+`3`
 
 ## big projects
 
