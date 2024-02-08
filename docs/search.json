@@ -156,6 +156,110 @@
     ]
   },
   {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html",
+    "title": "01. modeling",
+    "section": "",
+    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport plotly.io as pio\npio.renderers.default = \"plotly_mimetype+notebook_connected\"\nimport os\nfrom sklearn.metrics import *\nfrom sklearn.model_selection import train_test_split\n\n\nplt.rc(\"font\", family = \"Malgun Gothic\")\nsns.set(font=\"Malgun Gothic\", \nrc={\"axes.unicode_minus\":False}, style='white')\n\n\ndata = pd.read_csv('customers_seg.csv', encoding = \"CP949\")\ndata.set_index(\"CID\", inplace = True)\ndata.head()\n\n\n\n\n\n\n\n\nAGE\n등록(계/피)\n고용상태\n성별\nWillingness to pay/Stay\n갱신\n상품타입\n교육수준\n소득\n지역\n결혼여부\n월 납입액\nVOC\n타 상품 보유 현황\n온라인방문빈도\n갱신인센티브\n판매채널\n총지불금액\n자동차\n거주지사이즈\n\n\nCID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n3\n피보험자\n무직\n1\n2.616381\n0\n기본\n대학졸업\n0\n도시근교\n미혼\n80\n0\n1\n자주방문\n없음\n자사영업\n631000\n일반세단\n소\n\n\n2\n1\n계약자\n고용\n0\n6.352530\n0\n기본\n고졸이하\n102887400\n시골\n미혼\n80\n1\n4이상\n비방문\n포인트\n인터넷\n54000\n일반세단\n중\n\n\n3\n2\n계약자\n휴직\n0\n4.974354\n0\n기본\n대학졸업\n22159500\n도시근교\n기혼\n60\n0\n4이상\n비방문\n할인\n자사영업\n362000\n일반세단\n중\n\n\n4\n5\n계약자\n고용\n1\n13.480284\n0\n고급\n고졸이하\n51562500\n도시근교\n기혼\n110\n0\n2\n비방문\n할인\n자사영업\n1264000\n컴팩트카\n대\n\n\n5\n4\n계약자\n고용\n0\n9.776436\n0\n기본\n석사\n26820200\n도시근교\n기혼\n120\n0\n3\n비방문\n없음\n대리점\n947000\nSUV\n중",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#z-score-기반-이상치-처리",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#z-score-기반-이상치-처리",
+    "title": "01. modeling",
+    "section": "Z-score 기반 이상치 처리",
+    "text": "Z-score 기반 이상치 처리\n\\[Z_{score} = \\frac {X - \\bar {X}}{sd(X)}\\]\n\n(1) 수치형 변수 분포 확인\n-&gt; 수치형 변수는 ‘AGE’,‘WTP’,‘소득’,‘월 납입액’,’총지불금액’으로 총 5개  * 단, AGE의 경우 기본적인 정보라서 이상치가 없을 것으로 제외  * WTP(Willingness to pay/Stay)의 경우, 기업에서 사전 정의/개발된 지표의 값 이므로 이상치 처리 대상에서 제외하고 진행  결론적으로, ‘소득’, ‘월납입액’, ‘총 지불 금액’ 3개의 항목만 이상치 처리\n\nfig = data_choice.melt(value_vars = [\"월 납입액\", \"소득\", \"총지불금액\"],\n                 var_name = \"var\").plot(y = \"value\", color=\"var\", kind = \"box\",\n                                       backend = \"plotly\",facet_col= \"var\")\n\nfig.update_yaxes(matches = None)\nfig.update_xaxes(matches = None)\n\n                                                \n\n\n\n\n(2) 수치형 변수 이상치 처리\n\nimport scipy.stats as spst\n\nz_list = ['소득','월 납입액','총지불금액']\n\nz_df = data_choice[z_list].apply(spst.zscore, axis = 0)\nz_df.columns = [i + \"_z\" for i in z_list]\n\ndata_choice = pd.concat([data_choice, z_df],axis=1)\n\n\n\n(3) 이상치 검토\nz-score가 3이상이거나 -3 이하이면 이상치로 검토\n\n+ 이상치의 최소값들을 찾기\n\n\n월 납입액 이상치 검토\n\nout = lambda x : True if abs(x)&gt;=3 else False\n\na = data_choice[\"월 납입액_z\"].map(out)\na1 = data_choice[\"월 납입액\"][a]\na2 = min(a1)\na2\n\n230\n\n\n- 위 단계를 한번에\n\nmin([j for i,j in zip(data_choice[\"월 납입액_z\"],data_choice[\"월 납입액\"]) if abs(i)&gt;=3])\n\n230\n\n\n\n\n소득 변수 이상치 검토\n\na = data_choice[\"소득_z\"].map(out)\n\na1 = data_choice[\"소득\"][a]\na1\n\nSeries([], Name: 소득, dtype: int64)\n\n\n\n\n총 지불액 이상치 검토\n\na = data_choice[\"총지불금액_z\"].map(out)\n\na1 = data_choice[\"총지불금액\"][a]\n\na2 = np.min(a1)\n\na2\n\n1612000\n\n\n\n\n전체 확인\n\nprint(\"소득 이상치 최소값(기준) : \",min([j if abs(i)&gt;=3 else np.nan for i,j in zip(data_choice[\"소득_z\"],data_choice[\"소득\"])]) )\nprint(\"월 납입액 이상치 최소값(기준) : \",min([j for i,j in zip(data_choice[\"월 납입액_z\"],data_choice[\"월 납입액\"]) if abs(i)&gt;=3])  )\nprint(\"총 지불 금액 이상치 최소값(기준) : \", min([j for i,j in zip(data_choice[\"총지불금액_z\"],data_choice[\"총지불금액\"]) if abs(i)&gt;=3 ]))\n\n소득 이상치 최소값(기준) :  nan\n월 납입액 이상치 최소값(기준) :  230\n총 지불 금액 이상치 최소값(기준) :  1612000\n\n\n\n\n\n(4) 이상치 대체\n\n월 납입액 이상치 대체\n\nm1 = min([j for i,j in zip(data_choice[\"월 납입액_z\"],data_choice[\"월 납입액\"]) if abs(i)&gt;=3])\n\ndata_choice[\"월 납입액_z\"] = [m1 if abs(i)&gt;=3 else j for i,j in zip(data_choice[\"월 납입액_z\"],data_choice[\"월 납입액\"])] \n\n\n\n총 지불액 이상치 대체\n\nm2 = min([j for i,j in zip(data_choice[\"총지불금액_z\"],data_choice[\"총지불금액\"]) if abs(i)&gt;=3])\n\ndata_choice[\"총지불금액\"] = [m2 if abs(i)&gt;=3 else j for i,j in zip(data_choice[\"총지불금액_z\"],data_choice[\"총지불금액\"])] \n\n\n\n소득변수 이상치 대체\n1 소득 변수는 이상치가 없는 것으로 확인 되었으나, 소득이 아예없는 고객이 많았음\n2 따라서 해당 변수는 이산화 인코딩을 통헤 활용하는게 좋겠당\n\ndata_choice[\"소득\"] = [0 if i == 0 else 1 for i in data_choice[\"소득\"]]\n\ndata_choice[\"소득\"].value_counts()\n\n소득\n1    8972\n0    3028\nName: count, dtype: int64\n\n\n\n\nz-score 컬럼 삭제 & type 변경\n\ndata_choice_n = data_choice.drop(['소득_z','월 납입액_z','총지불금액_z'],axis = 1)\ndata_choice_n.head()\n\n\n\n\n\n\n\n\nAGE\n고용상태\nWillingness to pay/Stay\n상품타입\n교육수준\n소득\n월 납입액\n타 상품 보유 현황\n총지불금액\n거주지사이즈\n자동차\n\n\nCID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n3\n0\n2.616381\n0\n0\n0\n80\n1.0\n631000\n0\n0\n\n\n2\n1\n1\n6.352530\n0\n0\n1\n80\n4.0\n54000\n0\n0\n\n\n3\n2\n0\n4.974354\n0\n0\n1\n60\n4.0\n362000\n0\n0\n\n\n4\n5\n1\n13.480284\n1\n0\n1\n110\n2.0\n1264000\n1\n0\n\n\n5\n4\n1\n9.776436\n0\n1\n1\n120\n3.0\n947000\n0\n0\n\n\n\n\n\n\n\n\ndata_choice_n.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 12000 entries, 1 to 12000\nData columns (total 11 columns):\n #   Column                   Non-Null Count  Dtype  \n---  ------                   --------------  -----  \n 0   AGE                      12000 non-null  int64  \n 1   고용상태                     12000 non-null  int64  \n 2   Willingness to pay/Stay  12000 non-null  float64\n 3   상품타입                     12000 non-null  int64  \n 4   교육수준                     12000 non-null  int64  \n 5   소득                       12000 non-null  int64  \n 6   월 납입액                    12000 non-null  int64  \n 7   타 상품 보유 현황               12000 non-null  float64\n 8   총지불금액                    12000 non-null  int64  \n 9   거주지사이즈                   12000 non-null  int64  \n 10  자동차                      12000 non-null  int64  \ndtypes: float64(2), int64(9)\nmemory usage: 1.1 MB\n\n\n\ndata_choice_n = data_choice_n.astype(\"float64\")\n\n\ndata_choice_n.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 12000 entries, 1 to 12000\nData columns (total 11 columns):\n #   Column                   Non-Null Count  Dtype  \n---  ------                   --------------  -----  \n 0   AGE                      12000 non-null  float64\n 1   고용상태                     12000 non-null  float64\n 2   Willingness to pay/Stay  12000 non-null  float64\n 3   상품타입                     12000 non-null  float64\n 4   교육수준                     12000 non-null  float64\n 5   소득                       12000 non-null  float64\n 6   월 납입액                    12000 non-null  float64\n 7   타 상품 보유 현황               12000 non-null  float64\n 8   총지불금액                    12000 non-null  float64\n 9   거주지사이즈                   12000 non-null  float64\n 10  자동차                      12000 non-null  float64\ndtypes: float64(11)\nmemory usage: 1.1 MB",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#import",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#import",
+    "title": "01. modeling",
+    "section": "(1) import",
+    "text": "(1) import\n\nfrom yellowbrick.cluster import KElbowVisualizer \nfrom sklearn.neighbors import NearestNeighbors\nfrom sklearn.cluster import KMeans, DBSCAN",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#모델-적합",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#모델-적합",
+    "title": "01. modeling",
+    "section": "(2) 모델 적합",
+    "text": "(2) 모델 적합\n\nk = list(range(3,10,2))\n\n\n# 모델 만들기 (그룹수 : n_clusters 파라미터 사용)\n# 동일값을 위해 random_state=2023, n_init=10으로 설정값을 같이 해본다.\n# [참고]n_init의 기본 값이 10 이나 warning을 없애기 위해 지정해준다.\nk_model = KMeans(n_init = 10, n_clusters = 3, random_state = 200)\n\nk_model.fit(scaler_data)\n\npred = k_model.predict(scaler_data)\n\n\nk_model.cluster_centers_\n\narray([[ 4.14530612e-01,  8.57142857e-01,  7.62306195e-02,\n         7.83673469e-02,  1.00000000e+00,  1.00000000e+00,\n         1.33455313e-01,  4.25306122e-01,  2.50667950e-01,\n         1.10204082e-01,  8.81632653e-02],\n       [ 4.31137910e-01,  1.00000000e+00,  7.85980651e-02,\n         9.46196660e-02, -4.85722573e-16,  1.00000000e+00,\n         1.37867059e-01,  4.32436611e-01,  2.78258895e-01,\n         9.35374150e-02,  8.99814471e-02],\n       [ 3.93127467e-01, -6.32827124e-15,  7.01693293e-02,\n         8.52101231e-02,  4.48107732e-02,  2.96958440e-01,\n         1.39932588e-01,  4.34796068e-01,  4.25671810e-01,\n         1.17250987e-01,  9.65869515e-02]])",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#성능지표-확인-1.-inertia",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#성능지표-확인-1.-inertia",
+    "title": "01. modeling",
+    "section": "(3) 성능지표 확인 1. inertia",
+    "text": "(3) 성능지표 확인 1. inertia\n\n# 3가지 성능지표를 통해서 확인해보기\n\n# 1. inertia(이너셔) : 각 데이터와 센트로이드(중심) 사이의 평균 제곱거리로 도출한 모델 (model.inertia_로 쓴다)\n# 2. score 매서드: 이너셔의 음수값을 반환( model.score(df))\n# 3. %time : 모델학습에 소요되는 시간 측정\n\nks = list(range(3,11,1))\ninertia_list = []\nfor k in ks: \n    %time\n    exec(f\"k_model_{k} = KMeans(n_init = 10, n_clusters = {k}, random_state = 2023)\")     \n    exec(f\"k_model_{k}.fit(scaler_data)\")\n    exec(f\"inertia_list.append(k_model_{k}.inertia_)\")\n    exec(f\"_iner = k_model_{k}.inertia_\")\n    print(f\"n_cluster : {k}, inertia : {_iner}\") \n    print('---------') # n_cluster, inertia 결과 출력\n\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 3, inertia : 7630.738131128096\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 4, inertia : 6630.463665302053\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 5, inertia : 5871.217116262518\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 6, inertia : 5275.1942451921\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 7, inertia : 4808.309158286751\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 8, inertia : 4384.582013588153\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 9, inertia : 3987.128229343856\n---------\nCPU times: total: 0 ns\nWall time: 0 ns\nn_cluster : 10, inertia : 3693.3064711892653\n---------\n\n\n\n#plt로 결과출력\n\nplt.plot(ks, inertia_list,\"-ob\")\nplt.show()",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#성능지표-확인-2.-elbow-method",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#성능지표-확인-2.-elbow-method",
+    "title": "01. modeling",
+    "section": "(4) 성능지표 확인 2. Elbow Method",
+    "text": "(4) 성능지표 확인 2. Elbow Method\n\nyellowbrick의 k-Elbow Mehod를 활용해서 최적의 k 값을 구하기(k값 결정하기 쉽게 도와주는 함수)\n\n\n# 1. 모델 선언하기(random_state=2023, n_init = 10 으로 설정)(model_E로 할당)\nmodel = KMeans( n_init=10, random_state = 200)\n\n# 2. KElbowVisualizer 에 k-means 모델과 k값 넣어서 만들기(Elbow_M 에 할당)\n# k값은 k=(3,11)사이의 값중에서 찾는 것으로 넣으면 된다.\nmodel_E = KElbowVisualizer(model, k=(3,11))\n\n\n# 3. Elbow 모델 학습하기(fit)\nmodel_E.fit(scaler_data)\n\n\n# 4. Elbow 모델 확인하기(show()활용)\nmodel_E.show()\n\n\n\n\n\n\n\n\n- 최적의 k값은 5로 선정\n\ndistortion score : 각 데이터들의 군집 중심과의 평균 거리",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#최적의-k-값으로-모델링",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#최적의-k-값으로-모델링",
+    "title": "01. modeling",
+    "section": "(5) 최적의 k 값으로 모델링",
+    "text": "(5) 최적의 k 값으로 모델링\n\n# 1. scale이 안된 원본 data 로드\n\ndata_o = pd.read_csv(\"customers_seg.csv\", encoding = \"CP949\")\n\n# 2. 'CID'는 활용하지 않을 예정으로 index\ndata_o.set_index(\"CID\",inplace=True)\n\n# 3. 데이터 상위 5개 확인하기\ndata_o.head()\n\n\n\n\n\n\n\n\nAGE\n등록(계/피)\n고용상태\n성별\nWillingness to pay/Stay\n갱신\n상품타입\n교육수준\n소득\n지역\n결혼여부\n월 납입액\nVOC\n타 상품 보유 현황\n온라인방문빈도\n갱신인센티브\n판매채널\n총지불금액\n자동차\n거주지사이즈\n\n\nCID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n3\n피보험자\n무직\n1\n2.616381\n0\n기본\n대학졸업\n0\n도시근교\n미혼\n80\n0\n1\n자주방문\n없음\n자사영업\n631000\n일반세단\n소\n\n\n2\n1\n계약자\n고용\n0\n6.352530\n0\n기본\n고졸이하\n102887400\n시골\n미혼\n80\n1\n4이상\n비방문\n포인트\n인터넷\n54000\n일반세단\n중\n\n\n3\n2\n계약자\n휴직\n0\n4.974354\n0\n기본\n대학졸업\n22159500\n도시근교\n기혼\n60\n0\n4이상\n비방문\n할인\n자사영업\n362000\n일반세단\n중\n\n\n4\n5\n계약자\n고용\n1\n13.480284\n0\n고급\n고졸이하\n51562500\n도시근교\n기혼\n110\n0\n2\n비방문\n할인\n자사영업\n1264000\n컴팩트카\n대\n\n\n5\n4\n계약자\n고용\n0\n9.776436\n0\n기본\n석사\n26820200\n도시근교\n기혼\n120\n0\n3\n비방문\n없음\n대리점\n947000\nSUV\n중\n\n\n\n\n\n\n\n\nk4 = 5\n\nk_model = KMeans(random_state = 200, n_init=10, n_clusters = k4 )\n\nk_model.fit(scaler_data)\n\nkmeans_p = k_model.predict(scaler_data)\n\nscaler_data[\"clust\"] = kmeans_p\ndata_d1 = pd.concat([data_o.reset_index(drop = True), scaler_data[[\"clust\"]]], axis = 1)\n\n- 원본 데이터와 합치기\n\nindex_label = list(range(1,data_d1.shape[0]+1))\nindex_label[-1]\ndata_d1.index = index_label\ndata_d1 = data_d1.rename_axis(index = \"CID\")\noutput = data_d1.copy()\noutput.head()\n\n\n\n\n\n\n\n\nAGE\n등록(계/피)\n고용상태\n성별\nWillingness to pay/Stay\n갱신\n상품타입\n교육수준\n소득\n지역\n...\n월 납입액\nVOC\n타 상품 보유 현황\n온라인방문빈도\n갱신인센티브\n판매채널\n총지불금액\n자동차\n거주지사이즈\nclust\n\n\nCID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n3\n피보험자\n무직\n1\n2.616381\n0\n기본\n대학졸업\n0\n도시근교\n...\n80\n0\n1\n자주방문\n없음\n자사영업\n631000\n일반세단\n소\n2\n\n\n2\n1\n계약자\n고용\n0\n6.352530\n0\n기본\n고졸이하\n102887400\n시골\n...\n80\n1\n4이상\n비방문\n포인트\n인터넷\n54000\n일반세단\n중\n1\n\n\n3\n2\n계약자\n휴직\n0\n4.974354\n0\n기본\n대학졸업\n22159500\n도시근교\n...\n60\n0\n4이상\n비방문\n할인\n자사영업\n362000\n일반세단\n중\n4\n\n\n4\n5\n계약자\n고용\n1\n13.480284\n0\n고급\n고졸이하\n51562500\n도시근교\n...\n110\n0\n2\n비방문\n할인\n자사영업\n1264000\n컴팩트카\n대\n0\n\n\n5\n4\n계약자\n고용\n0\n9.776436\n0\n기본\n석사\n26820200\n도시근교\n...\n120\n0\n3\n비방문\n없음\n대리점\n947000\nSUV\n중\n3\n\n\n\n\n5 rows × 21 columns",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#프로파일링",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-01. modeling.html#프로파일링",
+    "title": "01. modeling",
+    "section": "(6) 프로파일링",
+    "text": "(6) 프로파일링\n- 군집의 구조와 내용을 분석하고 도메인 및 현업업무의 ’추론’을 바탕으로 분석의 결과를 적용 가능하도록 하는 과정. 데이터를 통해서 군집별 특성을 파악하는 것에 목적은 두는 기법\n\na. 군집별 수치형 변수 분포 확인\n\nplt.rc(\"font\", family = \"Malgun Gothic\")\nsns.set(font=\"Malgun Gothic\", \nrc={\"axes.unicode_minus\":False}, style='white')\n\n\nfig, axes = plt.subplots(2,2, figsize = (12,8))\n\n\nf_lst = [[\"Willingness to pay/Stay\", \"소득\"],[\"월 납입액\",\"총지불금액\",\"clust\"]]\n\nfor i in range(2) : \n    for j in range(2) : \n        sns.histplot(x = f_lst[i][j], data = output, hue=\"clust\", ax = axes[i][j], palette='cool') \n        \nfig.tight_layout()\nfig.show()\n\nC:\\Users\\rkdcj\\AppData\\Local\\Temp\\ipykernel_4972\\3364328251.py:11: UserWarning:\n\nMatplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.\n\n\n\n\n\n\n\n\n\n\n\nf_lst = [\"Willingness to pay/Stay\", \"소득\",\"월 납입액\",\"총지불금액\",\"clust\"]\n\n\nagg1 = output[f_lst].groupby(\"clust\").\\\n    agg({\"Willingness to pay/Stay\": np.mean,\n          \"소득\": np.mean,\n          \"월 납입액\": np.mean,\n          \"총지불금액\": np.mean,\n          })\n\n\n\nb. 군집간 수치형 변수들의 차이 검정\n\nfor i in range(5) : \n    exec(f\"w_{i} = output[f_lst].loc[map(lambda x : x == i,output.clust), 'Willingness to pay/Stay']\")\nstat = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[0]\npvalue = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[1]\nresult = pd.DataFrame(columns = [\"stat\",\"pvalue\",\"var\"])\nresult.loc[0] = [stat, pvalue,\"Willingness to pay/Stay\"] \n\n\nresult\n\n\n\n\n\n\n\n\nstat\npvalue\nvar\n\n\n\n\n0\n31.37888\n4.856769e-26\nWillingness to pay/Stay\n\n\n\n\n\n\n\n\nfor i in range(5) : \n    exec(f\"w_{i} = output[f_lst].loc[map(lambda x : x == i,output.clust), '소득']\")\n\n    stat = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[0]\npvalue = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[1]\nresult.loc[1] = [stat, pvalue,\"소득\"] \n\n\nfor i in range(5) : \n    exec(f\"w_{i} = output[f_lst].loc[map(lambda x : x == i,output.clust), '월 납입액']\")\n\nstat = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[0]\npvalue = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[1]\nresult.loc[2] = [stat, pvalue,\"월 납입액\"] \n\n\nfor i in range(5) : \n    exec(f\"w_{i} = output[f_lst].loc[map(lambda x : x == i,output.clust), '총지불금액']\")\n\nstat = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[0]\npvalue = spst.f_oneway(w_0,w_1,w_2,w_3,w_4)[1]\nresult.loc[3] = [stat, pvalue,\"총지불금액\"] \n\n\nresult\n\n\n\n\n\n\n\n\nstat\npvalue\nvar\n\n\n\n\n0\n31.378880\n4.856769e-26\nWillingness to pay/Stay\n\n\n1\n5476.648834\n0.000000e+00\n소득\n\n\n2\n3.560818\n6.578685e-03\n월 납입액\n\n\n3\n444.750442\n0.000000e+00\n총지불금액\n\n\n\n\n\n\n\n\nagg1\n\n\n\n\n\n\n\n\nWillingness to pay/Stay\n소득\n월 납입액\n총지불금액\n\n\nclust\n\n\n\n\n\n\n\n\n0\n9.916307\n6.917161e+07\n101.339761\n457605.683837\n\n\n1\n7.967621\n6.964916e+07\n97.863079\n441794.618124\n\n\n2\n8.367462\n0.000000e+00\n101.172391\n739828.599736\n\n\n3\n8.940833\n6.234310e+07\n98.702041\n404278.367347\n\n\n4\n8.452066\n2.504257e+07\n99.179046\n603396.403440\n\n\n\n\n\n\n\n\n\nc. 타겟 군집 선정\n- 0번 군집 : 기대확률이 상위, 소득이 높고, 월 납입액 중간, 총 지불금액이 하위권인 그룹\n- 1번 군집 : 기대확률 상위권, 소득이 중간, 월납입액 상위, 총 지불금액이 상위권인 그룹 (가장 마케팅 전략을 세우기 좋은 그룹)\n- 2번 군집 : 기대확률 중간, 소득이 없음, 월납입액 상위, 총 지불금액이 상위권인 그룹\n- 3번 군집 : 기대확률 중간, 소득이 중간, 월납입액 적음, 총 지불금액이 하위권인 그룹\n- 4번 군집 : 기대확률 중간, 소득과 월납입액이 높고, 총 지불금액이 하위권인 그룹\n- 5번 군집 : 기대확률, 월 납입액이 적고, 총 지불금액이 중간 정도 되는 그룹",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "01. modeling"
+    ]
+  },
+  {
     "objectID": "posts/2023-07-31-00.intro.html",
     "href": "posts/2023-07-31-00.intro.html",
     "title": "00. quarto blog",
@@ -303,9 +407,61 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Portfolio",
+    "title": "Projects",
     "section": "",
-    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n1 R for Data Science\n2 Special Topics in Data Visualization\n3 Introduction to Python\n4 Special Topics in Big Data Analysis\n5 Special Topics in Machine Learning\n6 Tableau Practice\n7 DX Consultant Education\n\n\n1 ISLP Study\n2 Algorithm Study\n\n\n1 mini project1 : Fine Watch 계단오르기 행동감지 모델링링\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n1 데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n2 핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
+    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n1 R for Data Science\n2 Special Topics in Data Visualization\n3 Introduction to Python\n4 Special Topics in Big Data Analysis\n5 Special Topics in Machine Learning\n6 Tableau Practice\n7 DX Consultant Education\n\n\n1 ISLP Study\n2 Algorithm Study\n\n\n1 mini project1 : Fine Watch 계단오르기 행동감지 모델링\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n1 데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n2 핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 26, 2023\n\n\n00. EDA\n\n\nGC \n\n\n\n\nSep 26, 2023\n\n\n01. modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html",
+    "title": "00. EDA",
+    "section": "",
+    "text": "1 파인애플 보험사의 효괴적인 마케팅 전략을 완성시키기 위한 데이터 기반 마케팅 솔루션 제안\n2 고객별로 특징을 적절하게 반영할 수 있는 군집분석을 통해 고객 segment 개발",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "00. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight",
+    "title": "00. EDA",
+    "section": "insight",
+    "text": "insight\n\n분석가 선정 컬럼을 탐색해본 결과 대부분의 고객들은 중산층에 속해있는 것 같다.\n분석가 선정 컬럼들에 따른 고객 소득 분포의 차이가 유의미하다면 고객 세그먼트와, 데이터 드리븐 전략을 세워 마케팅에 활용할 수 있다.",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "00. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight-1",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight-1",
+    "title": "00. EDA",
+    "section": "insight",
+    "text": "insight\n\n도메인 주용 항목 중 수치형 변수의 분포가 소득을 제외하고 왼쪽으로 치우쳐져 있다.\n소득의 경우 무직, 휴직, False 상태인 고객이 50%정도 차지 하고 있기 때문에 count = 0 부근에서 가장 많은 빈도를 보인다.",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "00. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight-2",
+    "href": "posts/mini projects/Fine Apple/2023-09-26-00. EDA.html#insight-2",
+    "title": "00. EDA",
+    "section": "insight",
+    "text": "insight\n\n현재 타 삼품 보유현황은 1, 4이상, 2, 3 순으로 많다.\n상품간 연계되는 서비스를 제공한다면 4이상을 1순위로 올릴 수 있다.",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "Fine Apple",
+      "00. EDA"
+    ]
   },
   {
     "objectID": "posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html",
