@@ -53,9 +53,9 @@ title-block-banner: true
 
 ## big projects
 
-* [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+`1` [**Do, Nation**](https://gangcheol.github.io/projects/posts/big%20projects/Do,%20Nation/2023-11-05-00.%20%EA%B8%B0%ED%9A%8D%EC%84%9C.html)
 
-* [Algorithm Study](https://gangcheol.github.io/IA2023/)
+`2` [**AIPORT**](https://gangcheol.github.io/projects/posts/big%20projects/Do,%20Nation/2023-11-05-00.%20%EA%B8%B0%ED%9A%8D%EC%84%9C.html)
 
 ## publications
 
