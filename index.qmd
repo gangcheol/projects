@@ -45,7 +45,7 @@ title-block-banner: true
 
 `2` [mini project2 :  Fine Apple, 군집분석을 통한 고객 segment 개발](https://gangcheol.github.io/projects/posts/mini%20projects/Fine%20Apple/2023-09-26-00.%20EDA.html)
 
-`3`
+`3` [mini project3 :  AIVLE, 1:1 문의유형 자동분류 모델링 및 교육 인사이트 도출](https://gangcheol.github.io/projects/posts/mini%20projects/AIVLE/2023-10-16-00.%20%EB%AC%B8%EC%9D%98%20%EC%9C%A0%ED%98%95%20%EC%9E%90%EB%8F%99%EB%B6%84%EB%A5%98%20%EB%AA%A8%EB%8D%B8%EB%A7%81%20%EC%83%9D%EC%84%B1.html)
 
 ## big projects
 
