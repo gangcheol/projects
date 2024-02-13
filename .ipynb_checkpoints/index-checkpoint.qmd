@@ -2,7 +2,7 @@
 title: "Projects"
 listing:
   contents: posts
-  sort: [date desc, title]
+  sort: [title, date desc]
   type: table
   categories: false
   sort-ui: false
@@ -66,6 +66,5 @@ title-block-banner: true
 `2` [핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002890029)
 
 * 이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학
-
 
 :::
