@@ -55,7 +55,7 @@ title-block-banner: true
 
 `1` [**Do, Nation**](https://gangcheol.github.io/projects/posts/big%20projects/Do,%20Nation/2023-11-05-00.%20%EA%B8%B0%ED%9A%8D%EC%84%9C.html)
 
-`2` [**AIPORT**](https://gangcheol.github.io/projects/posts/big%20projects/Do,%20Nation/2023-11-05-00.%20%EA%B8%B0%ED%9A%8D%EC%84%9C.html)
+`2` [**AIPORT**](https://gangcheol.github.io/projects/posts/big%20projects/AI%20PORT/2023-12-12-00.%20AI%20PORT%20%EC%A0%9C%EC%95%88%EC%84%9C.html)
 
 ## publications
 
