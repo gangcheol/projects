@@ -1084,7 +1084,7 @@
     "href": "about.html#publication",
     "title": "About me",
     "section": "Publication",
-    "text": "Publication\n\n[데이터 분석을 통한 지역별 고령친화도 시각화]((https://gangcheol.github.io/projects/posts/publications/2021-10-05-P1.html)\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학",
+    "text": "Publication\n\n데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학",
     "crumbs": [
       "**About me**"
     ]
@@ -1114,7 +1114,7 @@
     "href": "about.html#my-blog",
     "title": "About me",
     "section": "My blog",
-    "text": "My blog\n 1. Lecture\n\nR for Data Science\nSpecial Topics in Data Visualization\nIntroduction to Python\nSpecial Topics in Big Data Analysis\nSpecial Topics in Machine Learning\n\n 2. Tableau\n\nTableau Practice\n\n 3. DX\n\nDX Consultant Education\n\n 4. Study\n\nISLP Study\nAlgorithm Study\n\n 5. Projects\n\nMini Project 1 : 행동 데이터 분류 AI 모델링",
+    "text": "My blog\n 1. Lecture\n\nR for Data Science\nSpecial Topics in Data Visualization\nIntroduction to Python\nSpecial Topics in Big Data Analysis\nSpecial Topics in Machine Learning\n\n 2. Tableau\n\nTableau Practice\n\n 3. DX\n\nDX Consultant Education\n\n 4. Study\n\nISLP Study\nAlgorithm Study\n\n 5. Projects\n\nmini project1 : Fine Watch, 계단오르기 행동감지 모델링\nmini project2 : Fine Apple, 군집분석을 통한 고객 segment 개발\nmini project3 : AIVLE, 1:1 문의유형 자동분류 모델링 및 교육 인사이트 도출\nmini project4 : CCTV 차량인식, 실시간 신호등 제어 솔루션\nmini project5 : 응급환자, 119 구급대원의 빠른병원선정을 위한 솔루션\nbig project1 : Do Nation, 재난 기부 플랫폼 구축\nbig project2 : AI PORT, 지능형 CCTV 기반 보안관리 솔루션",
     "crumbs": [
       "**About me**"
     ]
