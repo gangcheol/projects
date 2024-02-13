@@ -521,11 +521,11 @@ window.Quarto = {
 <p><code>2</code> <a href="https://gangcheol.github.io/projects/posts/big%20projects/AI%20PORT/2023-12-12-00.%20AI%20PORT%20%EC%A0%9C%EC%95%88%EC%84%9C.html"><strong>AIPORT</strong></a></p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p><code>1</code> <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002773972">데이터 분석을 통한 지역별 고령친화도 시각화</a></p>
+<p><code>1</code> <a href="https://gangcheol.github.io/projects/posts/publications/2021-10-05-P1.html">데이터 분석을 통한 지역별 고령친화도 시각화</a></p>
 <ul>
 <li>김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존</li>
 </ul>
-<p><code>2</code> <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002890029">핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선</a></p>
+<p><code>2</code> <a href="https://gangcheol.github.io/projects/posts/publications/2023-02-22-P2.html">핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선</a></p>
 <ul>
 <li>이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학</li>
 </ul>
@@ -538,6 +538,25 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
@@ -547,13 +566,13 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-Date
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
 <th>
-Title
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-Author
+<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
 </th>
 </tr>
 </thead>
@@ -811,7 +830,7 @@ Author
 <span class="listing-author">GC </span>
 </td>
 </tr>
-<tr data-index="23" data-listing-date-sort="1676991600000" data-listing-file-modified-sort="1707819793301" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="Paper 2" data-listing-filename-sort="2023-02-22-P2.ipynb">
+<tr data-index="23" data-listing-date-sort="1676991600000" data-listing-file-modified-sort="1707820350679" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="Paper 2" data-listing-filename-sort="2023-02-22-P2.ipynb">
 <td>
 <span class="listing-date">Feb 22, 2023</span>
 </td>

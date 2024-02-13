@@ -1,1 +1,1 @@
-{"headings":["import","fine-tuning-and-training","사전학습된-모델-로드","샘플-데이터셋-로드","device-셋팅","데이터셋-분할","모델-학습","test-데이터-예측","model-save-load-predict","save","load","predict","원본비디오-재생","비디오-클래스-추정","클래스-추정-후-비디오-표시"],"entries":[]}
+{"entries":[],"headings":["import","fine-tuning-and-training","사전학습된-모델-로드","샘플-데이터셋-로드","device-셋팅","데이터셋-분할","모델-학습","test-데이터-예측","model-save-load-predict","save","load","predict","원본비디오-재생","비디오-클래스-추정","클래스-추정-후-비디오-표시"]}
