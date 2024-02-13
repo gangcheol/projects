@@ -1,5 +1,109 @@
 [
   {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-02-03. Prototype.html",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-02-03. Prototype.html",
+    "title": "03. Prototype",
+    "section": "",
+    "text": "Intro\n1 해당 프로토타입은 streamlit 모듈을 활용하여 구현함\n2 첨부한 app.py 파일을 터미널에서 실행하여 프로토타입 확인\nstreamlit run app.py\n\n\n시연 영상\n\n\nCode\nfrom IPython.display import Video\n\nVideo(\"prototype.mp4\",width = 1200, height = 800)\n\n\n\n      Your browser does not support the video element.",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "03. Prototype"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html",
+    "title": "01. EDA",
+    "section": "",
+    "text": "# 라이브러리 불러오기 \n\nimport pandas as pd\nimport numpy as np\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nimport scipy.stats as spst\n\nimport plotly.express as px\nimport plotly.io as pio\npio.renderers.default = \"plotly_mimetype+notebook_connected\"\n\nplt.rcParams['font.family'] = 'Malgun Gothic'",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#기초-정보-확인",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#기초-정보-확인",
+    "title": "01. EDA",
+    "section": "(1) 기초 정보 확인",
+    "text": "(1) 기초 정보 확인\n\ndata.shape\n\n(17210, 23)\n\n\n\ndata.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 17210 entries, 0 to 17209\nData columns (total 23 columns):\n #   Column    Non-Null Count  Dtype  \n---  ------    --------------  -----  \n 0   ID        17210 non-null  object \n 1   출동일시      17210 non-null  object \n 2   이름        17210 non-null  object \n 3   성별        17210 non-null  object \n 4   나이        17210 non-null  int64  \n 5   체온        17210 non-null  float64\n 6   수축기 혈압    17210 non-null  int64  \n 7   이완기 혈압    17210 non-null  int64  \n 8   호흡 곤란     17210 non-null  int64  \n 9   간헐성 경련    17210 non-null  int64  \n 10  설사        17210 non-null  int64  \n 11  기침        17210 non-null  int64  \n 12  출혈        17210 non-null  int64  \n 13  통증        17210 non-null  int64  \n 14  만지면 아프다   17210 non-null  int64  \n 15  무감각       17210 non-null  int64  \n 16  마비        17210 non-null  int64  \n 17  현기증       17210 non-null  int64  \n 18  졸도        17210 non-null  int64  \n 19  말이 어눌해졌다  17210 non-null  int64  \n 20  시력이 흐려짐   17210 non-null  int64  \n 21  중증질환      17210 non-null  object \n 22  이송 시간     17210 non-null  int64  \ndtypes: float64(1), int64(17), object(5)\nmemory usage: 3.0+ MB\n\n\n\ndata.isna().sum()\n\nID          0\n출동일시        0\n이름          0\n성별          0\n나이          0\n체온          0\n수축기 혈압      0\n이완기 혈압      0\n호흡 곤란       0\n간헐성 경련      0\n설사          0\n기침          0\n출혈          0\n통증          0\n만지면 아프다     0\n무감각         0\n마비          0\n현기증         0\n졸도          0\n말이 어눌해졌다    0\n시력이 흐려짐     0\n중증질환        0\n이송 시간       0\ndtype: int64",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#중증질환",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#중증질환",
+    "title": "01. EDA",
+    "section": "(1) 중증질환",
+    "text": "(1) 중증질환\n\nimport seaborn as sns\n\nsns.countplot(x = data[\"중증질환\"])\nplt.title(\"중증질환 빈도수\")\nplt.show()\n\n\n\n\n\n\n\n\n- 중증 질환 중 [심근경색, 복부손상, 뇌경색, 뇌출혈]에 대한 자료만 추출하여 분석\n\nc = ['심근경색', '복부손상', '뇌경색', '뇌출혈']\ndesease = data.loc[map(lambda x : x in c, data[\"중증질환\"]), : ]\n\n\nsns.countplot(x = desease[\"중증질환\"])\nplt.title(\"중증질환 출동건수\")\nplt.show()",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#연령대",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#연령대",
+    "title": "01. EDA",
+    "section": "(2) 연령대",
+    "text": "(2) 연령대\n\nsns.countplot(x = desease[\"연령구분\"])\nplt.title(\"연령대별 출동건수\")\nplt.show()",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#체온",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#체온",
+    "title": "01. EDA",
+    "section": "(1) 체온",
+    "text": "(1) 체온\n\nplt.figure(figsize = (4,4))\nsns.boxplot(x = desease[\"체온\"])\nplt.show()\n\n\n\n\n\n\n\n\n- 체온컬럼은 다수의 이상치가 보이나, 응급상황에 따른 병원 이송 솔루션이기 때문에 제거하거나 다른값으로 대체하기엔 적절하지 않다",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#bar-chart",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#bar-chart",
+    "title": "01. EDA",
+    "section": "(1) bar chart",
+    "text": "(1) bar chart\n\n_l = desease[\"중증질환\"].unique()\n_l\n\nanova_column = ['나이', '체온', '수축기 혈압', '이완기 혈압']\n\naov_stat = []\nfor j in range(len(anova_column)) :\n    for i in range(len(_l)) :\n        exec(f\"p_{j}{i} = desease.loc[desease['중증질환'] == _l[{i}] , [anova_column[{j}]]]\")\n        \nanova1 = spst.f_oneway(p_00,p_01,p_02,p_03)\nanova2 = spst.f_oneway(p_10,p_11,p_12,p_13)\nanova3 = spst.f_oneway(p_20,p_21,p_22,p_23)\nanova4 = spst.f_oneway(p_30,p_31,p_32,p_33)\n\n\naov_spst =[anova1[0][0],anova2[0][0],anova3[0][0],anova4[0][0]]\naov_p =[anova1[1][0],anova2[1][0],anova3[1][0],anova4[1][0]]\n\n\nimport seaborn as sns\nfig, axes = plt.subplots(1,4, figsize = (12, 4))\n\nfor i in range(4) :\n    sns.barplot(y=anova_column[i], x = \"중증질환\", data = desease, ax = axes[i])\n    axes[i].set_title(f\"중증질환별 {anova_column[i]} 평균\")\n    \nfig.tight_layout()",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#anova",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-31-01. EDA.html#anova",
+    "title": "01. EDA",
+    "section": "(2) anova",
+    "text": "(2) anova\n\nresult2 = pd.DataFrame({\"var\" : anova_column,\n              \"stat\" : aov_spst,\n              \"p-value\" : aov_p})\n\nresult2[\"기각여부\"] = [\"기각\" if i&lt;=0.05 else \"기각 x\" for i in result2[\"p-value\"]]\n\n\ntotal_result = pd.concat([result1, result2], axis = 0)\ntotal_result = total_result.loc[total_result.기각여부 == \"기각\", :].reset_index(drop = True)\n\n\ntotal_result\n\n\n\n\n\n\n\n\nvar\nstat\np-value\n기각여부\n\n\n\n\n0\n호흡 곤란\n12143.468674\n0.000000e+00\n기각\n\n\n1\n간헐성 경련\n1191.634967\n4.787739e-258\n기각\n\n\n2\n설사\n2153.464755\n0.000000e+00\n기각\n\n\n3\n기침\n1075.098480\n9.191766e-233\n기각\n\n\n4\n출혈\n2341.378625\n0.000000e+00\n기각\n\n\n5\n통증\n1690.206920\n0.000000e+00\n기각\n\n\n6\n만지면 아프다\n6423.164301\n0.000000e+00\n기각\n\n\n7\n무감각\n3834.728328\n0.000000e+00\n기각\n\n\n8\n마비\n6827.361021\n0.000000e+00\n기각\n\n\n9\n현기증\n3120.203329\n0.000000e+00\n기각\n\n\n10\n졸도\n2012.433146\n0.000000e+00\n기각\n\n\n11\n말이 어눌해졌다\n7526.849010\n0.000000e+00\n기각\n\n\n12\n시력이 흐려짐\n2120.402303\n0.000000e+00\n기각\n\n\n13\n발열\n923.068222\n8.776252e-200\n기각\n\n\n14\n고혈압\n13.412977\n3.823537e-03\n기각\n\n\n15\n저혈압\n182.259783\n2.867082e-39\n기각\n\n\n16\n체온\n201.863444\n1.172774e-128\n기각\n\n\n17\n수축기 혈압\n7.310971\n6.779787e-05\n기각\n\n\n18\n이완기 혈압\n12.692009\n2.779175e-08\n기각\n\n\n\n\n\n\n\n\ntotal_result.to_csv(\"변수선택.csv\", index = False)",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "01. EDA"
+    ]
+  },
+  {
     "objectID": "posts/mini projects/Fine Watch/2023-09-20-00. model tuning, save.html",
     "href": "posts/mini projects/Fine Watch/2023-09-20-00. model tuning, save.html",
     "title": "01. model tuning & save",
@@ -680,7 +784,7 @@
     "href": "index.html",
     "title": "Projects",
     "section": "",
-    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n1 R for Data Science\n2 Special Topics in Data Visualization\n3 Introduction to Python\n4 Special Topics in Big Data Analysis\n5 Special Topics in Machine Learning\n6 Tableau Practice\n7 DX Consultant Education\n\n\n1 ISLP Study\n2 Algorithm Study\n\n\n1 mini project1 : Fine Watch, 계단오르기 행동감지 모델링\n2 mini project2 : Fine Apple, 군집분석을 통한 고객 segment 개발\n3 mini project3 : AIVLE, 1:1 문의유형 자동분류 모델링 및 교육 인사이트 도출\n4 mini project4 : CCTV 차량인식, 실시간 신호등 제어 솔루션\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n1 데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n2 핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 20, 2023\n\n\n00. 실시간 신호등 제어\n\n\nGC \n\n\n\n\nOct 17, 2023\n\n\n01. 키워드 시각화 및 교육 인사이트 도출\n\n\nGC \n\n\n\n\nOct 16, 2023\n\n\n00. 문의 유형 자동분류 모델링 생성\n\n\nGC \n\n\n\n\nSep 26, 2023\n\n\n00. EDA\n\n\nGC \n\n\n\n\nSep 26, 2023\n\n\n01. modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
+    "text": "links\n\nlectureStudymini projectsbig projectspublications\n\n\n1 R for Data Science\n2 Special Topics in Data Visualization\n3 Introduction to Python\n4 Special Topics in Big Data Analysis\n5 Special Topics in Machine Learning\n6 Tableau Practice\n7 DX Consultant Education\n\n\n1 ISLP Study\n2 Algorithm Study\n\n\n1 mini project1 : Fine Watch, 계단오르기 행동감지 모델링\n2 mini project2 : Fine Apple, 군집분석을 통한 고객 segment 개발\n3 mini project3 : AIVLE, 1:1 문의유형 자동분류 모델링 및 교육 인사이트 도출\n4 mini project4 : CCTV 차량인식, 실시간 신호등 제어 솔루션\n\n\n\nISLP Study\nAlgorithm Study\n\n\n\n1 데이터 분석을 통한 지역별 고령친화도 시각화\n\n김영선, 강민구, 이강철 등 | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존\n\n2 핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선\n\n이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학\n\n\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nNov 2, 2023\n\n\n03. Prototype\n\n\nGC \n\n\n\n\nNov 1, 2023\n\n\n02. Modeling\n\n\nGC \n\n\n\n\nOct 31, 2023\n\n\n01. EDA\n\n\nGC \n\n\n\n\nOct 30, 2023\n\n\n00. 데이터 가져오기\n\n\nGC \n\n\n\n\nOct 20, 2023\n\n\n00. 실시간 신호등 제어\n\n\nGC \n\n\n\n\nOct 17, 2023\n\n\n01. 키워드 시각화 및 교육 인사이트 도출\n\n\nGC \n\n\n\n\nOct 16, 2023\n\n\n00. 문의 유형 자동분류 모델링 생성\n\n\nGC \n\n\n\n\nSep 26, 2023\n\n\n00. EDA\n\n\nGC \n\n\n\n\nSep 26, 2023\n\n\n01. modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n00. EDA & Modeling\n\n\nGC \n\n\n\n\nSep 20, 2023\n\n\n01. model tuning & save\n\n\nGC \n\n\n\n\nJul 31, 2023\n\n\n00. quarto blog\n\n\nGC \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html#contact",
@@ -1007,6 +1111,123 @@
       "mini projects",
       "Fine Watch",
       "00. EDA & Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html",
+    "title": "00. 데이터 가져오기",
+    "section": "",
+    "text": "1 119 병원선정 솔루션 기획\n2 응급환자의 빠른 병원 이송을 위한 119 구급대원의 병원선정 솔루션 프로토타입 제작\n\n이송 중인 환자의 중증질환을 예측하고, 해당 질환에 대해 환자 수용 가능한 병원을 파악하여 응급실 뺑뺑이문제 해결\n\n3 프로세스\n\n공공데이터 수집 및 가공 \\(\\to\\) Featuer 특성 이해 및 최적 모델 찾기 \\(\\to\\) 프로토타입 개발\n대구광역시 중심으로 데이터 추출",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "00. 데이터 가져오기"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html#위도-경도-파일-읽어오기",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html#위도-경도-파일-읽어오기",
+    "title": "00. 데이터 가져오기",
+    "section": "(1) 위도, 경도 파일 읽어오기",
+    "text": "(1) 위도, 경도 파일 읽어오기\n\nlocal_distriction_jsonurl='https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-municipalities-2018-geo.json'\n\n\nlocal_dict = json.loads(requests.get(local_distriction_jsonurl).text) ## 시군구별 json 파일",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "00. 데이터 가져오기"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html#대구광역시를-찾아보자",
+    "href": "posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html#대구광역시를-찾아보자",
+    "title": "00. 데이터 가져오기",
+    "section": "(2) 대구광역시를 찾아보자",
+    "text": "(2) 대구광역시를 찾아보자\n\n_features =local_dict[\"features\"]\n\n\n# _features 각 지역의 위도 경도 데이터를 가지고 있음\n\n\n_features[0][\"properties\"]\n\n{'name': '종로구', 'base_year': '2018', 'name_eng': 'Jongno-gu', 'code': '11010'}\n\n\n\n_features[0][\"properties\"][\"name\"]\n\n'종로구'\n\n\n- 대충 어떤 구조인지 파악\n\n_lst = [_features[i][\"properties\"][\"name\"] for i in range(250)]\n\n\ndistance_df\n\n\n\n\n\n\n\n\n병원코드\n병원명\n주소\n응급연락처\n위도\n경도\n응급실수\n수술실수\n가용응급실수\n가용수술실수\n...\n복부손상\n사지접합\n응급투석\n조산산모\n신생아\n중증화상\n응급실가용율\n응급실포화도\n거리\n거리구분\n\n\n\n\n0\nA1300038\n나사렛종합병원\n대구광역시 달서구 월배로 97, 나사렛병원 (진천동)\n053-643-3119\n35.814700\n128.525095\n11.0\n5.0\n2.0\n4.0\n...\nY\nN\nY\nY\nN\nY\n0.181818\n혼잡\n7.88\n10km이내\n\n\n1\nA1300034\n드림종합병원\n대구광역시 남구 대명로 153 (대명동)\n053-640-8575\n35.839635\n128.574355\n10.0\n3.0\n8.0\n2.0\n...\nN\nN\nY\nY\nY\nY\n0.800000\n원활\n3.33\n5km이내\n\n\n2\nA1300045\n삼일병원\n대구광역시 달서구 월배로 436, 지하1,지상1~11층 (송현동)\n053-659-3119\n35.832748\n128.553855\n10.0\n2.0\n11.0\n2.0\n...\nN\nN\nY\nY\nY\nY\n1.000000\n원활\n4.73\n5km이내\n\n\n3\nA1300001\n영남대학교병원\n대구광역시 남구 현충로 170 (대명동)\n053-620-3177\n35.847506\n128.585131\n30.0\n19.0\n6.0\n19.0\n...\nN\nY\nN\nY\nN\nY\n0.200000\n혼잡\n2.43\n5km이내\n\n\n\n\n4 rows × 23 columns\n\n\n\n\n[distance_df[\"위도\"][0],distance_df[\"경도\"][0]]\n\n[35.8147002604042, 128.525094795643]\n\n\n\ndistance_df['응급연락처'][0]\n\n'053-643-3119'\n\n\n\ndistance_df['병원명'][0]\n\n'나사렛종합병원'\n\n\n\ndistance_df\n\n\n\n\n\n\n\n\n병원코드\n병원명\n주소\n응급연락처\n위도\n경도\n응급실수\n수술실수\n가용응급실수\n가용수술실수\n...\n복부손상\n사지접합\n응급투석\n조산산모\n신생아\n중증화상\n응급실가용율\n응급실포화도\n거리\n거리구분\n\n\n\n\n0\nA1300038\n나사렛종합병원\n대구광역시 달서구 월배로 97, 나사렛병원 (진천동)\n053-643-3119\n35.814700\n128.525095\n11.0\n5.0\n2.0\n4.0\n...\nY\nN\nY\nY\nN\nY\n0.181818\n혼잡\n7.88\n10km이내\n\n\n1\nA1300034\n드림종합병원\n대구광역시 남구 대명로 153 (대명동)\n053-640-8575\n35.839635\n128.574355\n10.0\n3.0\n8.0\n2.0\n...\nN\nN\nY\nY\nY\nY\n0.800000\n원활\n3.33\n5km이내\n\n\n2\nA1300045\n삼일병원\n대구광역시 달서구 월배로 436, 지하1,지상1~11층 (송현동)\n053-659-3119\n35.832748\n128.553855\n10.0\n2.0\n11.0\n2.0\n...\nN\nN\nY\nY\nY\nY\n1.000000\n원활\n4.73\n5km이내\n\n\n3\nA1300001\n영남대학교병원\n대구광역시 남구 현충로 170 (대명동)\n053-620-3177\n35.847506\n128.585131\n30.0\n19.0\n6.0\n19.0\n...\nN\nY\nN\nY\nN\nY\n0.200000\n혼잡\n2.43\n5km이내\n\n\n\n\n4 rows × 23 columns\n\n\n\n\n_lst2 = [i.split()[1] for i in solution_df[\"주소\"][:-1]]\n\n\nf_df = solution_df.iloc[:-1,:].copy()\nf_df[\"시군구\"] = _lst2\nf_df = f_df.groupby([\"시군구\"],as_index=False)[[\"응급실가용율\"]].mean()\nf_df\n\n\n\n\n\n\n\n\n시군구\n응급실가용율\n\n\n\n\n0\n남구\n0.500000\n\n\n1\n달서구\n0.462771\n\n\n2\n동구\n0.000000\n\n\n3\n북구\n0.000000\n\n\n4\n서구\n0.000000\n\n\n5\n수성구\n0.000000\n\n\n6\n중구\n0.000000\n\n\n\n\n\n\n\n\nm = folium.Map([35.8765167, 128.5972922],\n               zoom_start=11,scrollWheelZoom=True,width = \"100%\", height = \"100%\"\n               ) ## 환자 위치\n\nfolium.Marker(location = [35.8765167, 128.5972922],\n              tooltip = \"click\",\n              popup = \"환자위치\",\n              icon = folium.Icon(color=\"red\")\n              ).add_to(m)\nfor i in range(len(distance_df)) :\n    html = distance_df.loc[[i],[\"병원명\",\"주소\",\"응급연락처\",\"거리구분\"]].T.\\\n                    to_html(classes=\"table table-striped table-hover table-condensed table-responsive\")\n    popup = folium.Popup(html,max_width = 500)\n    folium.Marker(location = [distance_df[\"위도\"][i],distance_df[\"경도\"][i]],\n                  popup = popup,\n                  icon = folium.Icon(color= \"blue\")\n                  ).add_to(m)\n\nchoro = folium.Choropleth(\n                data=f_df,\n                geo_data = local_dict,\n                columns = [\"시군구\",\"응급실가용율\"],\n                key_on = \"feature.properties.name\",\n                mapbox_style=\"carto-positron\")\nchoro.add_to(m)\nm\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "00. 데이터 가져오기"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html",
+    "title": "02. Modeling",
+    "section": "",
+    "text": "Target : 중증질환 (뇌경색, 뇌출혈, 복부손상, 심근경색)\n데이터 분석 결과를 바탕으로 Target에 영향을 주는 Feature 전처리 (함수 정의)\n머신러닝/딥러닝 모델링 후 성능 비교\n최적AI 모델 선정 및 저장\n새로운 출동 이력에 제시된 환자의 증상을 바탕으로 중증 질환 예측 함수 정의",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#tree",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#tree",
+    "title": "02. Modeling",
+    "section": "(1) tree",
+    "text": "(1) tree\n\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.metrics import *\n\ntree = DecisionTreeClassifier(max_depth = 5)\n\ntree.fit(train_x, train_y)\n\ntree_pred = tree.predict(test_x)\n\ntree_acc = accuracy_score(test_y, tree_pred)\nprint(tree_acc)\n\n0.8482772122161315",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#randomforest",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#randomforest",
+    "title": "02. Modeling",
+    "section": "(2) RandomForest",
+    "text": "(2) RandomForest\n\nfrom sklearn.ensemble import RandomForestClassifier\n\nrf = RandomForestClassifier(max_depth = 5, n_estimators = 5)\n\nrf.fit(train_x, train_y)\n\nrf_pred = rf.predict(test_x)\n\nrf_acc = accuracy_score(test_y, rf_pred)\nprint(rf_acc)\n\n0.8784259984338293",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#xgboost",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#xgboost",
+    "title": "02. Modeling",
+    "section": "(3) XGBoost",
+    "text": "(3) XGBoost\n\nfrom xgboost import XGBClassifier\n\nxg =  XGBClassifier()\n\ntrain_y1 = train_y.map({'뇌경색':0, '뇌출혈':1, '복부손상':2, '심근경색':3})\ntest_y1 = test_y.map({'뇌경색':0, '뇌출혈':1, '복부손상':2, '심근경색':3})\n\nxg.fit(train_x, train_y1)\n\nxg_pred = xg.predict(test_x)\n\nxg_acc = accuracy_score(test_y1, xg_pred)\nprint(xg_acc)\n\n0.9193422083007048",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#dnn",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#dnn",
+    "title": "02. Modeling",
+    "section": "(4) DNN",
+    "text": "(4) DNN\n\nnf = train_x.shape[1]\nnf\n\n19\n\n\n\nfrom keras.layers import Dense, Dropout\nfrom keras.models import Sequential\nfrom keras.losses import sparse_categorical_crossentropy\nfrom keras.optimizers import Adam\nfrom keras.backend import clear_session\nfrom keras.callbacks import EarlyStopping, ModelCheckpoint\n\nclear_session()\n\n\nmodel = Sequential()\nmodel.add(Dense(128, input_shape=(nf,), activation =\"relu\"))\nmodel.add(Dense(4,  activation =\"softmax\"))\n\nmodel.compile(loss = sparse_categorical_crossentropy,\n                            optimizer = Adam(0.001), metrics = [\"accuracy\"])\n\nhistory = model.fit(train_x, train_y1, validation_split = 0.2,\n                              epochs = 20, batch_size = 16,  verbose = 0).history\n\ndl_pred = model.predict(test_x).argmax(axis = 1)\n\ndl_acc = accuracy_score(test_y1, dl_pred)\n\n160/160 [==============================] - 0s 2ms/step\n\n\n\ndl_acc\n\n0.8539545810493344",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
+    ]
+  },
+  {
+    "objectID": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#최적-모델-선정-및-저장",
+    "href": "posts/mini projects/병원선정 솔루션/2023-11-01-02. Modeling.html#최적-모델-선정-및-저장",
+    "title": "02. Modeling",
+    "section": "(5) 최적 모델 선정 및 저장",
+    "text": "(5) 최적 모델 선정 및 저장\n\n## 질문) 최적 모델로 선정된 것은 무엇인가?\nresult = pd.DataFrame({\"model \" : [\"tree\",\"RF\", \"XGBoost\", \"DL\"],\n                                \"acc\" : [tree_acc, rf_acc, xg_acc, dl_acc]})\nresult\n\n\n\n\n\n\n\n\nmodel\nacc\n\n\n\n\n0\ntree\n0.848277\n\n\n1\nRF\n0.878426\n\n\n2\nXGBoost\n0.919342\n\n\n3\nDL\n0.853955\n\n\n\n\n\n\n\n\nimport joblib\n\njoblib.dump(xg, \"best_model.pkl\")\n\n['best_model.pkl']",
+    "crumbs": [
+      "Posts",
+      "mini projects",
+      "병원선정 솔루션",
+      "02. Modeling"
     ]
   }
 ]
