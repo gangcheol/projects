@@ -33,9 +33,9 @@ title-block-banner: true
 
 ## Study
 
-`1` [ISLP Study](https://gangcheol.github.io/ISLP2023/)
+`1` [ISLP, An introduction to statistical learning with python](https://gangcheol.github.io/ISLP2023/)
 
-`2` [Algorithm Study](https://gangcheol.github.io/IA2023/)
+`2` [Algorithm](https://gangcheol.github.io/IA2023/)
 
 
 ## mini projects
@@ -54,15 +54,15 @@ title-block-banner: true
 
 `1` [**Do, Nation**](https://gangcheol.github.io/projects/posts/big%20projects/Do,%20Nation/2023-11-05-00.%20%EA%B8%B0%ED%9A%8D%EC%84%9C.html)
 
-`2` [**AIPORT**](https://gangcheol.github.io/projects/posts/big%20projects/AI%20PORT/2023-12-12-00.%20AI%20PORT%20%EC%A0%9C%EC%95%88%EC%84%9C.html)
+`2` [**AI PORT**](https://gangcheol.github.io/projects/posts/big%20projects/AI%20PORT/2023-12-12-00.%20AI%20PORT%20%EC%A0%9C%EC%95%88%EC%84%9C.html)
 
 ## publications
 
-`1` [데이터 분석을 통한 지역별 고령친화도 시각화](https://gangcheol.github.io/projects/posts/publications/2021-10-05-P1.html)
+`1` [**데이터 분석을 통한 지역별 고령친화도 시각화**](https://gangcheol.github.io/projects/posts/publications/2021-10-05-P1.html)
 
 * 김영선, 강민구, 이강철 등  | 문화융복합아카이빙연구소 | 2021. 10 | 기록관리/보존 
 
-`2` [핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선](https://gangcheol.github.io/projects/posts/publications/2023-02-22-P2.html)
+`2` [**핵심어 추출 및 데이터 증강기법을 이용한 텍스트 분류 모델 성능 개선**](https://gangcheol.github.io/projects/posts/publications/2023-02-22-P2.html)
 
 * 이강철, 안정용 | 한국자료분석학회 | 한국자료분석학회 | 2022. 10 | 통계학
 
