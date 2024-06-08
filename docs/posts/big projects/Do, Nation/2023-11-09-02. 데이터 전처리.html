@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Untitled</span></a>
+ <span class="menu-text">Untitled1</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -322,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/big projects/untitled/2024-02-21-00.데이터 활용 예시.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00. 데이터 활용 예시</span></a>
+  <a href="../../../posts/big projects/untitled1/00. EDA (1).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00. EDA (1)</span></a>
   </div>
 </li>
       </ul>
@@ -683,6 +683,7 @@ memory usage: 387.3+ KB</code></pre>
 <div id="a925a11d-d1a3-46a9-b7a6-1e25cdbaab13" class="cell" data-executioninfo="{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699516914462,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="78d17b63-2308-49c1-d5b1-c3e0e4906817" data-tags="[]">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
+<div>
 
   <div id="df-56ec06f0-8bdb-4ba3-a90e-83f18e237fe2" class="colab-df-container">
     <div>
@@ -949,6 +950,7 @@ memory usage: 387.3+ KB</code></pre>
   </div>
 </div>
 </div>
+</div>
 </section>
 <section id="전처리-1.-명사만-추출" class="level1">
 <h1>전처리 1. 명사만 추출</h1>
@@ -1009,6 +1011,7 @@ Name: 전처리, Length: 9911, dtype: object</code></pre>
 <div id="9t4rtVYONGgr" class="cell" data-executioninfo="{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699518793747,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="575a1035-2082-4e7d-83b6-d091a4790045">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>wcount_df.sort_values(<span class="st">"count"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="87">
+<div>
 
   <div id="df-58c2511e-2135-4e79-b986-7665c68cea6e" class="colab-df-container">
     <div>
@@ -1257,6 +1260,7 @@ Name: 전처리, Length: 9911, dtype: object</code></pre>
   </div>
 </div>
 </div>
+</div>
 <p><code>-</code> 10회 미만인 단어 확인</p>
 <p><code>-</code> 10회 미만인 단어도 중요해보이는 단어가 딱히 보이지 않음</p>
 <ul>
@@ -1271,6 +1275,7 @@ Name: 전처리, Length: 9911, dtype: object</code></pre>
 <div id="9Xj7tc5TOnAO" class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699519073870,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="164c68d9-60c7-48f3-a935-ebe225d38acb">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>wcount_df.sort_values(<span class="st">"count"</span>, ascending <span class="op">=</span> <span class="va">True</span>).tail(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="103">
+<div>
 
   <div id="df-2d7186c3-4516-4e67-b8c8-c2f3dd1ac8dc" class="colab-df-container">
     <div>
@@ -1569,6 +1574,7 @@ Name: 전처리, Length: 9911, dtype: object</code></pre>
   </div>
 </div>
 </div>
+</div>
 </section>
 <section id="전처리-4.-불용어-선정" class="level1">
 <h1>전처리 4. 불용어 선정</h1>
@@ -1674,6 +1680,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>data <span class="op">=</span> pd.read_excel(<span class="st">"/content/drive/MyDrive/Colab Notebooks/뉴스빅데이터해커톤/토픽모델링/토픽모델 dataset.xlsx"</span>)</span>
 <span id="cb37-2"><a href="#cb37-2"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="148">
+<div>
 
   <div id="df-dc7c210b-d098-4d44-ba13-2c5419e54e60" class="colab-df-container">
     <div>
@@ -1952,6 +1959,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 <div id="T2UdYe2pN-ky" class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699538551370,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-execution_count="149">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>stopword <span class="op">=</span> [<span class="st">"아버지"</span>, <span class="st">"아들"</span>, <span class="st">"대통령"</span>, <span class="st">"기자"</span>,<span class="st">"자랑"</span>,</span>
 <span id="cb38-2"><a href="#cb38-2"></a>                    <span class="st">"사진"</span>,<span class="st">"오피스"</span>, <span class="st">"감각"</span>, <span class="st">"인테리어"</span>, <span class="st">"뉴스"</span>, <span class="st">"집무실"</span>, <span class="st">"백악관"</span>, <span class="st">"사연"</span>,</span>
@@ -2085,6 +2093,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div id="l2dTz_bfakx9" class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699538971348,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="67d19bd1-7290-4841-a36d-062dcd701a22" data-execution_count="200">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="200">
+<div>
 
   <div id="df-84d2cedb-da79-4bf3-86e3-653c1e59b940" class="colab-df-container">
     <div>
@@ -2363,6 +2372,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 <div id="EhneU88BXEe5" class="cell" data-executioninfo="{&quot;elapsed&quot;:295,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699538980552,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-execution_count="201">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>removal_list <span class="op">=</span>  <span class="st">"‘, ’, ◇, ‘, ”,  ’, ', ·, \“, ·, △, ●,  , ■, (, ), </span><span class="ch">\"</span><span class="st">, &gt;&gt;, `, /, #, ∼, =,ㆍ&lt;,&gt;, .,?, !,【,】, …, ◆,%, ₩"</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="kw">def</span> remove_special(sentence: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>):</span>
@@ -2381,6 +2391,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span id="cb59-2"><a href="#cb59-2"></a></span>
 <span id="cb59-3"><a href="#cb59-3"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="203">
+<div>
 
   <div id="df-868ab532-ae85-44dc-aa84-a7ce5daf293f" class="colab-df-container">
     <div>
@@ -2665,6 +2676,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 </section>
 <section id="단어분리" class="level2">
 <h2 class="anchored" data-anchor-id="단어분리">단어분리</h2>
@@ -2672,6 +2684,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>data[<span class="st">'단어분리'</span>] <span class="op">=</span> [i.split(<span class="st">" "</span>) <span class="cf">for</span> i <span class="kw">in</span> data.특수문자제거]</span>
 <span id="cb60-2"><a href="#cb60-2"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="205">
+<div>
 
   <div id="df-b2228f28-9601-43bc-865e-76087d8f7e95" class="colab-df-container">
     <div>
@@ -2962,6 +2975,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 <section id="불용어-제거" class="level3">
 <h3 class="anchored" data-anchor-id="불용어-제거">불용어 제거</h3>
 <div id="-JmCwdtCa2tA" class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699539039846,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-execution_count="206">
@@ -2973,6 +2987,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div id="_sZG36YDa7Xw" class="cell" data-executioninfo="{&quot;elapsed&quot;:66738,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699539122001,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="66bc349c-d517-4a88-cb7a-8e380843f22e" data-execution_count="207">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>data[<span class="st">'불용어제거'</span>] <span class="op">=</span> data[<span class="st">"단어분리"</span>].<span class="bu">map</span>(remove_stopword)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="207">
+<div>
 
   <div id="df-fd38071c-06bf-42d9-8606-672be4c119ff" class="colab-df-container">
     <div>
@@ -3348,12 +3363,14 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 <div id="uMg8A9VYbVlX" class="cell" data-executioninfo="{&quot;elapsed&quot;:292,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699539292393,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-execution_count="210">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>data[<span class="st">"topic_text"</span>] <span class="op">=</span> [<span class="st">" "</span>.join(i) <span class="cf">for</span> i <span class="kw">in</span> data[<span class="st">"불용어제거"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="N5Y8Az1vcfqX" class="cell" data-executioninfo="{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699539454532,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-outputid="3cc59127-8442-404c-b92c-8ffacd29b23f" data-execution_count="213">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="213">
+<div>
 
   <div id="df-7c62ce83-9666-43ef-9bae-2a3e39134d4a" class="colab-df-container">
     <div>
@@ -3650,6 +3667,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
 </div>
 </div>
+</div>
 <div id="BVZZfckIb5S5" class="cell" data-executioninfo="{&quot;elapsed&quot;:24027,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699539349700,&quot;user&quot;:{&quot;displayName&quot;:&quot;ccc flkwerkdai&quot;,&quot;userId&quot;:&quot;13507850890638580947&quot;},&quot;user_tz&quot;:-540}" data-execution_count="212">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>data.to_excel(<span class="st">"/content/drive/MyDrive/Colab Notebooks/뉴스빅데이터해커톤/토픽모델링/토픽모델 dataset.xlsx"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3739,6 +3757,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -3773,7 +3809,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -4049,7 +4089,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../posts/big projects/Do, Nation/2023-11-06-01. 데이터 수집.html" class="pagination-link  aria-label=" 01.="" 데이터="" 수집"="">
+      <a href="../../../posts/big projects/Do, Nation/2023-11-06-01. 데이터 수집.html" class="pagination-link" aria-label="01. 데이터 수집">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">01. 데이터 수집</span>
       </a>          
   </div>

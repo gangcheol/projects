@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Untitled</span></a>
+ <span class="menu-text">Untitled1</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -322,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/big projects/untitled/2024-02-21-00.데이터 활용 예시.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00. 데이터 활용 예시</span></a>
+  <a href="../../../posts/big projects/untitled1/00. EDA (1).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00. EDA (1)</span></a>
   </div>
 </li>
       </ul>
@@ -558,6 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -715,6 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <section id="기초-정보-확인" class="level2">
 <h2 class="anchored" data-anchor-id="기초-정보-확인">(1) 기초 정보 확인</h2>
 <div id="aa86ffcc-6f7a-4394-bc45-0619b8412911" class="cell" data-tags="[]" data-execution_count="3">
@@ -798,6 +800,7 @@ dtype: int64</code></pre>
 <span id="cb9-3"><a href="#cb9-3"></a>                      bins <span class="op">=</span> [<span class="op">-</span>np.inf, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dv">19</span>, <span class="dv">29</span>, <span class="dv">39</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="dv">69</span>, <span class="dv">79</span>, <span class="dv">89</span>, np.inf])</span>
 <span id="cb9-4"><a href="#cb9-4"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
+<div>
 <div>
 
 
@@ -956,6 +959,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p><code>-</code> 출동일자 컬럼에서 출동월 정보를 추출하기</p>
 <div id="4694925f-b517-4e3e-b9ac-9b89aa03573f" class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>data[<span class="st">'출동월'</span>] <span class="op">=</span> [i.split(<span class="st">"-"</span>)[<span class="dv">1</span>] <span class="cf">for</span> i <span class="kw">in</span> data[<span class="st">"출동일시"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1079,6 +1083,7 @@ dtype: int64</code></pre>
 <span id="cb20-5"><a href="#cb20-5"></a>result1[<span class="st">"기각여부"</span>] <span class="op">=</span> [<span class="st">"기각"</span> <span class="cf">if</span> i <span class="op">&lt;=</span><span class="fl">0.05</span> <span class="cf">else</span> <span class="st">"기각 x"</span> <span class="cf">for</span> i <span class="kw">in</span> result1[<span class="st">"p-value"</span>]]</span>
 <span id="cb20-6"><a href="#cb20-6"></a>result1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
+<div>
 <div>
 
 
@@ -1232,6 +1237,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <hr>
 </section>
 <section id="이변량-분석-수치-vs-범주" class="level1">
@@ -1296,6 +1302,7 @@ dtype: int64</code></pre>
 <div id="e5b55f89-2835-4c66-881d-c64f9db7ad34" class="cell" data-tags="[]" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>total_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
+<div>
 <div>
 
 
@@ -1449,6 +1456,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <div id="d73f9253-bd3c-4b35-bcd9-913390aefdfc" class="cell" data-tags="[]" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>total_result.to_csv(<span class="st">"변수선택.csv"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1537,6 +1545,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1571,7 +1597,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1847,7 +1877,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html" class="pagination-link  aria-label=" 00.="" 데이터="" 가져오기"="">
+      <a href="../../../posts/mini projects/병원선정 솔루션/2023-10-30-00. 데이터 가져오기.html" class="pagination-link" aria-label="00. 데이터 가져오기">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">00. 데이터 가져오기</span>
       </a>          
   </div>

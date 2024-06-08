@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/big projects/untitled/2024-02-21-00.데이터 활용 예시.html",
       "/posts/big projects/AI PORT/2024-01-05.04. prototype.html",
       "/posts/big projects/AI PORT/2024-01-01-03. model theory.html",
       "/posts/big projects/AI PORT/2023-12-28-01. model train.html",
@@ -27,7 +26,8 @@
       "/posts/mini projects/Fine Watch/2023-09-20-00. model tuning, save.html",
       "/posts/2023-07-31-00.intro.html",
       "/posts/publications/2023-02-22-P2.html",
-      "/posts/publications/2021-10-05-P1.html"
+      "/posts/publications/2021-10-05-P1.html",
+      "/posts/big projects/untitled1/00. EDA (1).html"
     ]
   }
 ]

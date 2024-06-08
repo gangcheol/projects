@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Untitled</span></a>
+ <span class="menu-text">Untitled1</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -322,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/big projects/untitled/2024-02-21-00.데이터 활용 예시.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00. 데이터 활용 예시</span></a>
+  <a href="../../../posts/big projects/untitled1/00. EDA (1).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00. EDA (1)</span></a>
   </div>
 </li>
       </ul>
@@ -572,6 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -729,6 +730,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p><code>-</code> 불필요한 컬럼 제거</p>
 <ul>
 <li><code>subject</code>열 은 데이터를 수집한 사람을 구별하기 위한 데이터</li>
@@ -737,6 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>data.drop(<span class="st">"subject"</span>, axis <span class="op">=</span> <span class="dv">1</span>,inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
+<div>
 <div>
 
 
@@ -895,11 +898,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p><code>-</code> 이전에 저장한 모델링 결과파일 로드</p>
 <div id="03f64bf8-7b51-40ed-89c4-ac40c4c80a1c" class="cell" data-tags="[]" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>result <span class="op">=</span> pd.read_csv(<span class="st">"result3.csv"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
+<div>
 <div>
 
 
@@ -945,6 +950,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1060,6 +1066,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-4"><a href="#cb18-4"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -1114,6 +1121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 <section id="feature-selection" class="level1">
@@ -1130,6 +1138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-2"><a href="#cb20-2"></a>                                <span class="st">"feature_importance"</span> : imp})</span>
 <span id="cb20-3"><a href="#cb20-3"></a>importance_sort.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
+<div>
 <div>
 
 
@@ -1173,10 +1182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <div id="44b1ec51-a8f1-43c8-a10b-ad4710d7c152" class="cell" data-tags="[]" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>importance_sort.sort_values(<span class="st">"feature_importance"</span>, ascending <span class="op">=</span> <span class="va">False</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a>importance_sort.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
+<div>
 <div>
 
 
@@ -1217,6 +1228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1271,6 +1283,7 @@ Pass `objective` as keyword args.
 <div id="08be7d44-7354-4499-968c-d1fa911d5b3f" class="cell" data-tags="[]" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
+<div>
 <div>
 
 
@@ -1333,6 +1346,7 @@ Pass `objective` as keyword args.
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 <section id="중요-feature-50개-선정" class="level2">
@@ -1387,6 +1401,7 @@ Parameters: { "random_stat" } are not used.
 <div id="10d69272-7f11-45a6-b929-26fed01fb2e6" class="cell" data-tags="[]" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
+<div>
 <div>
 
 
@@ -1456,6 +1471,7 @@ Parameters: { "random_stat" } are not used.
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 <section id="결과-시각화" class="level2">
@@ -1464,6 +1480,7 @@ Parameters: { "random_stat" } are not used.
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>result.melt(id_vars <span class="op">=</span> [<span class="st">"model_name"</span>], </span>
 <span id="cb39-2"><a href="#cb39-2"></a>            value_vars<span class="op">=</span> [<span class="st">"accuracy_score"</span>, <span class="st">"F1_score"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
+<div>
 <div>
 
 
@@ -1564,6 +1581,7 @@ Parameters: { "random_stat" } are not used.
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1728,6 +1746,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1762,7 +1798,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -2038,7 +2078,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html" class="pagination-link  aria-label=" 00.="" eda="" &amp;="" modeling"="">
+      <a href="../../../posts/mini projects/Fine Watch/2023-09-20-00 . EDA , modeling.html" class="pagination-link" aria-label="00. EDA &amp; Modeling">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">00. EDA &amp; Modeling</span>
       </a>          
   </div>
