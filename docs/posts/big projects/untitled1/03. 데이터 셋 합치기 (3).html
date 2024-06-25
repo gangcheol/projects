@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -104,9 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -889,313 +886,77 @@ memory usage: 2.8+ MB</code></pre>
 <div id="cb6066a2-9a59-4457-8f1b-7b47d156fa78" class="cell" data-execution_count="108">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>temp.to_csv(<span class="st">"통합2.csv"</span>, encoding <span class="op">=</span> <span class="st">"euc-kr"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2fefe286-1610-495b-a1dc-038007b8c5b8" class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="109">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">key</th>
-<th data-quarto-table-cell-role="th">지역</th>
-<th data-quarto-table-cell-role="th">정보공시 학교코드</th>
-<th data-quarto-table-cell-role="th">학교명</th>
-<th data-quarto-table-cell-role="th">교과교실제(지정?운영)</th>
-<th data-quarto-table-cell-role="th">자율학교(지정?운영)</th>
-<th data-quarto-table-cell-role="th">수준별 수업(운영)</th>
-<th data-quarto-table-cell-role="th">전체학생수</th>
-<th data-quarto-table-cell-role="th">연간1인당 보건실이용건수</th>
-<th data-quarto-table-cell-role="th">수업교원 1인당 학생수</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">유도 및 안내설비 설치여부</th>
-<th data-quarto-table-cell-role="th">경보 및 피난설비 설치여부</th>
-<th data-quarto-table-cell-role="th">상담실적(내부상담전문가)</th>
-<th data-quarto-table-cell-role="th">상담실적(외부상담전문가)</th>
-<th data-quarto-table-cell-role="th">교수학습공간 일반교실</th>
-<th data-quarto-table-cell-role="th">교수학습공간 교과교실</th>
-<th data-quarto-table-cell-role="th">교수학습공간 수준별교실</th>
-<th data-quarto-table-cell-role="th">교수학습공간 특별교실</th>
-<th data-quarto-table-cell-role="th">학생자율동아리 동아리수</th>
-<th data-quarto-table-cell-role="th">창의적체험활동동아리 동아리수</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>S000003511-2021</td>
-<td>서울특별시 서초구</td>
-<td>S000003511</td>
-<td>서울교육대학교부설초등학교</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>614.0</td>
-<td>1.1</td>
-<td>19.7</td>
-<td>...</td>
-<td>적정설치</td>
-<td>단순설치</td>
-<td>280.0</td>
-<td>0.0</td>
-<td>28.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>12.0</td>
-<td>8.0</td>
-<td>8.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>S000003511-2022</td>
-<td>서울특별시 서초구</td>
-<td>S000003511</td>
-<td>서울교육대학교부설초등학교</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>611.0</td>
-<td>7.4</td>
-<td>19.7</td>
-<td>...</td>
-<td>적정설치</td>
-<td>단순설치</td>
-<td>265.0</td>
-<td>0.0</td>
-<td>28.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>12.0</td>
-<td>0.0</td>
-<td>27.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>S000003511-2023</td>
-<td>서울특별시 서초구</td>
-<td>S000003511</td>
-<td>서울교육대학교부설초등학교</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>612.0</td>
-<td>14.8</td>
-<td>19.1</td>
-<td>...</td>
-<td>적정설치</td>
-<td>단순설치</td>
-<td>750.0</td>
-<td>0.0</td>
-<td>28.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>12.0</td>
-<td>0.0</td>
-<td>30.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>S000003511-2024</td>
-<td>서울특별시 서초구</td>
-<td>S000003511</td>
-<td>서울교육대학교부설초등학교</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>610.0</td>
-<td>15.6</td>
-<td>19.1</td>
-<td>...</td>
-<td>적정설치</td>
-<td>단순설치</td>
-<td>750.0</td>
-<td>0.0</td>
-<td>28.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>12.0</td>
-<td>0.0</td>
-<td>29.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>S000003514-2021</td>
-<td>서울특별시 성북구</td>
-<td>S000003514</td>
-<td>서울대학교사범대학부설중학교</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>625.0</td>
-<td>2.3</td>
-<td>11.2</td>
-<td>...</td>
-<td>적정설치</td>
-<td>적정설치</td>
-<td>252.0</td>
-<td>20.0</td>
-<td>24.0</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>21.0</td>
-<td>8.0</td>
-<td>8.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5470</td>
-<td>S010006545-2023</td>
-<td>서울특별시 강동구</td>
-<td>S010006545</td>
-<td>강빛중학교</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>210.0</td>
-<td>8.1</td>
-<td>8.5</td>
-<td>...</td>
-<td>적정설치</td>
-<td>적정설치</td>
-<td>284.0</td>
-<td>0.0</td>
-<td>53.0</td>
-<td>7.0</td>
-<td>0.0</td>
-<td>13.0</td>
-<td>17.0</td>
-<td>25.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5471</td>
-<td>S010006545-2024</td>
-<td>서울특별시 강동구</td>
-<td>S010006545</td>
-<td>강빛중학교</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>263.0</td>
-<td>7.3</td>
-<td>12.5</td>
-<td>...</td>
-<td>적정설치</td>
-<td>적정설치</td>
-<td>601.0</td>
-<td>8.0</td>
-<td>53.0</td>
-<td>7.0</td>
-<td>0.0</td>
-<td>13.0</td>
-<td>16.0</td>
-<td>25.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5472</td>
-<td>S010006553-2022</td>
-<td>서울특별시 강동구</td>
-<td>S010006545</td>
-<td>강빛중학교</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>263.0</td>
-<td>7.3</td>
-<td>12.5</td>
-<td>...</td>
-<td>미설치</td>
-<td>미설치</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5473</td>
-<td>S010006558-2022</td>
-<td>서울특별시 송파구</td>
-<td>S010006558</td>
-<td>덕수고등학교(일반고)</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0.0</td>
-<td>7.3</td>
-<td>11.4</td>
-<td>...</td>
-<td>적정설치</td>
-<td>적정설치</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>24.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5474</td>
-<td>S010006558-2023</td>
-<td>서울특별시 송파구</td>
-<td>S010006558</td>
-<td>덕수고등학교(일반고)</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>297.0</td>
-<td>9.9</td>
-<td>13.0</td>
-<td>...</td>
-<td>적정설치</td>
-<td>적정설치</td>
-<td>252.0</td>
-<td>8.0</td>
-<td>36.0</td>
-<td>6.0</td>
-<td>0.0</td>
-<td>4.0</td>
-<td>0.0</td>
-<td>41.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>5475 rows × 52 columns</p>
+<div id="2fefe286-1610-495b-a1dc-038007b8c5b8" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>temp.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
+<pre><code>(5475, 52)</code></pre>
 </div>
 </div>
+<div id="1f8d35dd-f46b-464f-bddd-fadaadde66a3" class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>temp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 5475 entries, 0 to 5474
+Data columns (total 52 columns):
+ #   Column                                     Non-Null Count  Dtype  
+---  ------                                     --------------  -----  
+ 0   key                                        5475 non-null   object 
+ 1   지역                                         5475 non-null   object 
+ 2   정보공시 학교코드                                  5475 non-null   object 
+ 3   학교명                                        5475 non-null   object 
+ 4   교과교실제(지정?운영)                               5475 non-null   int64  
+ 5   자율학교(지정?운영)                                5475 non-null   int64  
+ 6   수준별 수업(운영)                                 5475 non-null   int64  
+ 7   전체학생수                                      5475 non-null   float64
+ 8   연간1인당 보건실이용건수                              5475 non-null   float64
+ 9   수업교원 1인당 학생수                               5475 non-null   float64
+ 10  체육장 개방여부                                   5475 non-null   object 
+ 11  체육관 개방여부                                   5475 non-null   object 
+ 12  강당 개방여부                                    5475 non-null   object 
+ 13  일반교과교실 개방여부                                5475 non-null   object 
+ 14  특별교실 개방여부                                  5475 non-null   object 
+ 15  시청각실 개방여부                                  5475 non-null   object 
+ 16  보호자비율                                      5475 non-null   float64
+ 17  지도교사수-동아리?학생자치활동                           5475 non-null   int64  
+ 18  지도교사수-또래활동                                 5475 non-null   int64  
+ 19  지도교사수-교육주간 활동                              5475 non-null   int64  
+ 20  지도교사수-기타 학교폭력 예방활동                         5475 non-null   int64  
+ 21  참여학생수-동아리?학생자치활동                           5475 non-null   int64  
+ 22  참여학생수-또래활동                                 5475 non-null   int64  
+ 23  참여학생수-교육주간 활동                              5475 non-null   int64  
+ 24  참여학생수-기타 학교폭력 예방활동                         5475 non-null   int64  
+ 25  전체학생수_안전교육 계획 및 실시현황                       5475 non-null   int64  
+ 26  생활안전교육 시간(단위활동차시)-합계                       5475 non-null   float64
+ 27  교통안전교육 시간(단위활동차시)-합계                       5475 non-null   float64
+ 28  폭력예방및신변보호교육 시간(단위활동차시)-합계                  5475 non-null   float64
+ 29  약물중독예방교육 시간(단위활동차시) - 합계 (2020년 이후)        5475 non-null   float64
+ 30  지능정보서비스과의존관련교육 시간(단위활동차시) - 합계 (2023년 이후)  5475 non-null   float64
+ 31  직업안전교육 시간(단위활동차시)-합계                       5475 non-null   float64
+ 32  응급처치교육 시간(단위활동차시)-합계                       5475 non-null   float64
+ 33  주 출입구 접근로 설치여부                             5475 non-null   object 
+ 34  장애인 전용 주차구역 지정여부                           5475 non-null   object 
+ 35  주 출입구 높이차이 제거여부                            5475 non-null   object 
+ 36  출입구(문) 설치유무                                5475 non-null   object 
+ 37  복도                                         5475 non-null   object 
+ 38  계단/승강기/경사로/휠체어리프트 유무                       5475 non-null   object 
+ 39  장애인용 대변기 설치여부                              5475 non-null   object 
+ 40  장애인용 소변기 설치여부                              5475 non-null   object 
+ 41  점자블록 설치여부                                  5475 non-null   object 
+ 42  유도 및 안내설비 설치여부                             5475 non-null   object 
+ 43  경보 및 피난설비 설치여부                             5475 non-null   object 
+ 44  상담실적(내부상담전문가)                              5475 non-null   float64
+ 45  상담실적(외부상담전문가)                              5475 non-null   float64
+ 46  교수학습공간 일반교실                                5475 non-null   float64
+ 47  교수학습공간 교과교실                                5475 non-null   float64
+ 48  교수학습공간 수준별교실                               5475 non-null   float64
+ 49  교수학습공간 특별교실                                5475 non-null   float64
+ 50  학생자율동아리 동아리수                               5475 non-null   float64
+ 51  창의적체험활동동아리 동아리수                            5475 non-null   float64
+dtypes: float64(19), int64(12), object(21)
+memory usage: 2.2+ MB</code></pre>
 </div>
 </div>
+<p><code>-</code> 어떤 카테고리가 들어갔으면 좋겠다. 어떤 시각화가 들어갔으면 좋은지…</p>
 
 
 </section>
