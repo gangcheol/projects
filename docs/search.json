@@ -979,7 +979,7 @@
     "href": "posts/big projects/untitled1/05. target 변수 산출 및 모델링.html",
     "title": "05. target 변수 산출 및 모델링",
     "section": "",
-    "text": "Code\nimport pandas as pd\nimport os\nimport numpy as np\nimport warnings\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import *\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nwarnings.filterwarnings(action = \"ignore\")",
+    "text": "Code\nimport pandas as pd\nimport os\nimport numpy as np\nimport warnings\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import *\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport plotly.express as px\nimport plotly.io as pio\npio.renderers.default = \"plotly_mimetype+notebook_connected\"\n\nwarnings.filterwarnings(action = \"ignore\")",
     "crumbs": [
       "Posts",
       "big projects",
