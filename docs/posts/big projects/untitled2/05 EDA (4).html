@@ -362,6 +362,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">06. 최적 모델 적합</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/big projects/untitled1/07. EDA (2).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07. EDA (2)</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -600,52 +606,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="e0288b9f-979e-4875-bb88-9bc090f30f7b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="62b25e34-1181-4e9b-b1e0-0d5b393d9230" class="cell" data-execution_count="4">
+<div id="62b25e34-1181-4e9b-b1e0-0d5b393d9230" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"1차 데이터합본.csv"</span>, encoding <span class="op">=</span> <span class="st">"euc-kr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d43b1b91-efd0-4f5c-aee3-31b1f807a632" class="cell" data-execution_count="32">
+<div id="d43b1b91-efd0-4f5c-aee3-31b1f807a632" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 65383 entries, 0 to 65382
 Data columns (total 25 columns):
- #   Column          Non-Null Count  Dtype  
----  ------          --------------  -----  
- 0   key             65383 non-null  object 
- 1   성별구분코드          65383 non-null  object 
- 2   연령대구분명          65383 non-null  object 
- 3   답변자거주지역명        65383 non-null  object 
- 4   가구소득정도명         65383 non-null  object 
- 5   평일일평균레저시간       65383 non-null  int64  
- 6   주말일평균레저시간       65383 non-null  int64  
- 7   1주총레저시간         65383 non-null  int64  
- 8   레저시간휴식오락사용비율    65383 non-null  float64
- 9   레저시간취미사용비율      65383 non-null  float64
- 10  레저시간본인계발사용비율    65383 non-null  float64
- 11  레저시간대인관계교제사용비율  65383 non-null  float64
- 12  레저시간기타사용비율      65383 non-null  float64
- 13  문화예술관람관심정도      65383 non-null  object 
- 14  문화예술활동관심정도      65383 non-null  object 
- 15  스포츠관람관심정도       65383 non-null  object 
- 16  스포츠활동관심정도       65383 non-null  object 
- 17  관광여행관심정도        65383 non-null  object 
- 18  오락휴식관심정도        65383 non-null  object 
- 19  본인계발본인관리관심정도    65383 non-null  object 
- 20  사회교류관심정도        65383 non-null  object 
- 21  레저시간사용목적1순위값    65383 non-null  object 
- 22  레저시간사용목적2순위값    65383 non-null  object 
- 23  3개월이내경험레저문화값    65383 non-null  object 
- 24  1년도이내경험레저문화값    65383 non-null  object 
-dtypes: float64(5), int64(3), object(17)
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   key             65383 non-null  object
+ 1   성별구분코드          65383 non-null  object
+ 2   연령대구분명          65383 non-null  object
+ 3   답변자거주지역명        65383 non-null  object
+ 4   가구소득정도명         65383 non-null  object
+ 5   평일일평균레저시간       65383 non-null  int64 
+ 6   주말일평균레저시간       65383 non-null  int64 
+ 7   1주총레저시간         65383 non-null  int64 
+ 8   레저시간휴식오락사용비율    65383 non-null  int64 
+ 9   레저시간취미사용비율      65383 non-null  int64 
+ 10  레저시간본인계발사용비율    65383 non-null  int64 
+ 11  레저시간대인관계교제사용비율  65383 non-null  int64 
+ 12  레저시간기타사용비율      65383 non-null  int64 
+ 13  문화예술관람관심정도      65383 non-null  object
+ 14  문화예술활동관심정도      65383 non-null  object
+ 15  스포츠관람관심정도       65383 non-null  object
+ 16  스포츠활동관심정도       65383 non-null  object
+ 17  관광여행관심정도        65383 non-null  object
+ 18  오락휴식관심정도        65383 non-null  object
+ 19  본인계발본인관리관심정도    65383 non-null  object
+ 20  사회교류관심정도        65383 non-null  object
+ 21  레저시간사용목적1순위값    65383 non-null  object
+ 22  레저시간사용목적2순위값    65383 non-null  object
+ 23  3개월이내경험레저문화값    65383 non-null  object
+ 24  1년도이내경험레저문화값    65383 non-null  object
+dtypes: int64(8), object(17)
 memory usage: 12.5+ MB</code></pre>
 </div>
 </div>
 </section>
 <section id="연령별-여가시간-평균-확인" class="level1">
 <h1>2. 연령별 여가시간 평균 확인</h1>
-<div id="a093a49c-611e-4c07-b69d-f5fb9ad438b5" class="cell" data-execution_count="20">
+<div id="a093a49c-611e-4c07-b69d-f5fb9ad438b5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.groupby(<span class="st">"가구소득정도명"</span>, as_index <span class="op">=</span> <span class="va">False</span>)[<span class="st">"평일일평균레저시간"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <div>
 
@@ -691,9 +697,9 @@ memory usage: 12.5+ MB</code></pre>
 </div>
 </div>
 </div>
-<div id="a257baba-be2e-48af-b18c-7ffd3487cf79" class="cell" data-execution_count="19">
+<div id="a257baba-be2e-48af-b18c-7ffd3487cf79" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.groupby(<span class="st">"가구소득정도명"</span>, as_index <span class="op">=</span> <span class="va">False</span>)[<span class="st">"주말일평균레저시간"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <div>
 
@@ -742,12 +748,12 @@ memory usage: 12.5+ MB</code></pre>
 </section>
 <section id="시니어-계층-레저시간-사용비율-확인" class="level1">
 <h1>3. 시니어 계층 레저시간 사용비율 확인</h1>
-<div id="07785212-6403-451c-9c4a-3aabbdf28e22" class="cell" data-execution_count="24">
+<div id="07785212-6403-451c-9c4a-3aabbdf28e22" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>f <span class="op">=</span> [<span class="st">"50대"</span>, <span class="st">"60대"</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>s_df <span class="op">=</span> df.loc[<span class="bu">map</span>(<span class="kw">lambda</span> x : x <span class="kw">in</span> f, df.연령대구분명),:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d7f2bab3-d3f6-4416-87ad-aba9e9683427" class="cell" data-execution_count="28">
+<div id="d7f2bab3-d3f6-4416-87ad-aba9e9683427" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>m1 <span class="op">=</span> s_df[<span class="st">"레저시간휴식오락사용비율"</span>].mean()</span>
 <span id="cb8-2"><a href="#cb8-2"></a>m2 <span class="op">=</span> s_df[<span class="st">"레저시간취미사용비율"</span>].mean()</span>
 <span id="cb8-3"><a href="#cb8-3"></a>m3 <span class="op">=</span> s_df[<span class="st">"레저시간본인계발사용비율"</span>].mean()</span>
@@ -755,7 +761,7 @@ memory usage: 12.5+ MB</code></pre>
 <span id="cb8-5"><a href="#cb8-5"></a>m5 <span class="op">=</span> s_df[<span class="st">"레저시간기타사용비율"</span>].mean()</span>
 <span id="cb8-6"><a href="#cb8-6"></a></span>
 <span id="cb8-7"><a href="#cb8-7"></a>m1,m2,m3,m4,m5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>(36.268034125975674,
  22.5228535124342,
  14.268324559811218,
@@ -766,9 +772,9 @@ memory usage: 12.5+ MB</code></pre>
 </section>
 <section id="시니어계층-오락휴식-관심정도확인" class="level1">
 <h1>4. 시니어계층 오락휴식 관심정도확인</h1>
-<div id="67903f1d-50c3-4452-8c61-86142e33dc37" class="cell" data-execution_count="30">
+<div id="67903f1d-50c3-4452-8c61-86142e33dc37" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>s_df.오락휴식관심정도.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>오락휴식관심정도
 비슷하다       14588
 조금 커졌다      8648
@@ -781,9 +787,9 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="시니어-계측-레저시간-사용목적" class="level1">
 <h1>5. 시니어 계측 레저시간 사용목적</h1>
-<div id="3e5cf268-aa53-4289-9f6a-2c86e75e0695" class="cell" data-execution_count="31">
+<div id="3e5cf268-aa53-4289-9f6a-2c86e75e0695" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>s_df.레저시간사용목적<span class="dv">1</span><span class="er">순위값</span>.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>레저시간사용목적1순위값
 건강 관리를 위해              7467
 자기만족-즐거움을 위해           4942
@@ -795,6 +801,29 @@ Name: count, dtype: int64</code></pre>
 남는 시간을 보내기 위해           671
 기타                       87
 Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="baebe049-6049-431b-abb6-88b9c980099a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df[<span class="st">"연령대구분명"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>연령대구분명
+50대    15024
+40대    14372
+60대    12521
+30대    12009
+20대    11457
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="af9dbc73-7a90-48e0-bd57-5b5add61d068" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['key', '성별구분코드', '연령대구분명', '답변자거주지역명', '가구소득정도명', '평일일평균레저시간',
+       '주말일평균레저시간', '1주총레저시간', '레저시간휴식오락사용비율', '레저시간취미사용비율', '레저시간본인계발사용비율',
+       '레저시간대인관계교제사용비율', '레저시간기타사용비율', '문화예술관람관심정도', '문화예술활동관심정도', '스포츠관람관심정도',
+       '스포츠활동관심정도', '관광여행관심정도', '오락휴식관심정도', '본인계발본인관리관심정도', '사회교류관심정도',
+       '레저시간사용목적1순위값', '레저시간사용목적2순위값', '3개월이내경험레저문화값', '1년도이내경험레저문화값'],
+      dtype='object')</code></pre>
 </div>
 </div>
 

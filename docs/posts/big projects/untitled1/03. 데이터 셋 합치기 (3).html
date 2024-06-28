@@ -359,6 +359,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">06. 최적 모델 적합</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/big projects/untitled1/07. EDA (2).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07. EDA (2)</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -602,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="데이터-로드" class="level1">
 <h1>01. 데이터 로드</h1>
-<div id="1a936c5d-2873-4df7-91b7-0666532810f3" class="cell" data-execution_count="75">
+<div id="1a936c5d-2873-4df7-91b7-0666532810f3" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -613,14 +619,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6"></a>warnings.filterwarnings(action <span class="op">=</span> <span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="929ae189-cb5d-45b7-a5e2-06356f8f913b" class="cell" data-execution_count="76">
+<div id="929ae189-cb5d-45b7-a5e2-06356f8f913b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>file_list <span class="op">=</span> os.listdir(<span class="st">"total_data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="48b23e70-e505-4e2a-aa65-051fd94fed9b" class="cell" data-execution_count="77">
+<div id="48b23e70-e505-4e2a-aa65-051fd94fed9b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(file_list)) : </span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="bu">exec</span>(<span class="ss">f'df</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> = pd.read_csv("total_data/" + file_list[</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">],encoding = "euc-kr")'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a1ec208f-e04b-4c4d-96ef-5caf344a2143" class="cell" data-execution_count="78">
+<div id="a1ec208f-e04b-4c4d-96ef-5caf344a2143" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df3.rename(columns <span class="op">=</span> {<span class="st">"학교코드_공시연도"</span> : <span class="st">"key"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -632,54 +638,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#df2.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> df2 데이터를 살펴본 결과 3번째 부터 32번째 컬럼은 필요 없어보임</p>
-<div id="7ecd1673-6e41-4c61-85d0-6155eed2f386" class="cell" data-execution_count="80">
+<div id="7ecd1673-6e41-4c61-85d0-6155eed2f386" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>drop_col <span class="op">=</span> df2.columns[<span class="dv">3</span>:<span class="dv">33</span>].tolist()</span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
 <span id="cb6-3"><a href="#cb6-3"></a>df2.drop(drop_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb6-4"><a href="#cb6-4"></a>df2.dropna(subset <span class="op">=</span> [<span class="st">"key"</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="71962517-85fd-4170-a1a0-c19e00ca6fd5" class="cell" data-execution_count="81">
+<div id="71962517-85fd-4170-a1a0-c19e00ca6fd5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df2.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(154031, 31)</code></pre>
 </div>
 </div>
 <p><code>1</code> 전처리 과정에서 key 값 결합이 잘못된 것 같음.. 다시 분할 한 후 합쳐 주자</p>
-<div id="b7802169-2b60-42b2-899c-aac43fd6c7d5" class="cell" data-execution_count="82">
+<div id="b7802169-2b60-42b2-899c-aac43fd6c7d5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df2[<span class="st">"school_code"</span>] <span class="op">=</span> [i.split(<span class="st">"-"</span>)[<span class="dv">0</span>] <span class="cf">for</span> i <span class="kw">in</span> df2[<span class="st">"key"</span>]]</span>
 <span id="cb9-2"><a href="#cb9-2"></a>df2[<span class="st">"year"</span>] <span class="op">=</span> [i.split(<span class="st">"-"</span>)[<span class="dv">1</span>] <span class="cf">for</span> i <span class="kw">in</span> df2[<span class="st">"key"</span>]]</span>
 <span id="cb9-3"><a href="#cb9-3"></a>df2.year.replace(<span class="st">"nan"</span>,<span class="dv">0</span>, inplace <span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="43c4f6ed-4f1f-461b-96a8-34a7583f658f" class="cell" data-execution_count="83">
+<div id="43c4f6ed-4f1f-461b-96a8-34a7583f658f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df2.year <span class="op">=</span> df2.year.astype(<span class="bu">float</span>).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b8535a9a-df59-4913-bf9b-c50bfd4723c1" class="cell" data-execution_count="84">
+<div id="b8535a9a-df59-4913-bf9b-c50bfd4723c1" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df2 <span class="op">=</span> df2.loc[df2.year <span class="op">!=</span><span class="dv">0</span> ,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>2</code> 합치기</p>
-<div id="24b1e1bd-045b-4a61-8e26-0a8283861fb2" class="cell" data-execution_count="85">
+<div id="24b1e1bd-045b-4a61-8e26-0a8283861fb2" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df2[<span class="st">"key"</span>] <span class="op">=</span> [i <span class="op">+</span> <span class="st">"-"</span> <span class="op">+</span> <span class="bu">str</span>(j) <span class="cf">for</span> i,j <span class="kw">in</span> <span class="bu">zip</span>(df2[<span class="st">"school_code"</span>], df2[<span class="st">"year"</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0293701c-db32-4316-b0b7-0d5d167f5dad" class="cell" data-execution_count="86">
+<div id="0293701c-db32-4316-b0b7-0d5d167f5dad" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df2.key.unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="86">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array(['S000003511-2021', 'S000003563-2021', 'S010000738-2021', ...,
        'S010006027-2024', 'S010006380-2024', 'S010005864-2024'],
       dtype=object)</code></pre>
 </div>
 </div>
-<div id="5b8a2c5b-192c-4611-993a-724a6038c6ed" class="cell" data-execution_count="87">
+<div id="5b8a2c5b-192c-4611-993a-724a6038c6ed" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df2.drop_duplicates(subset <span class="op">=</span> [<span class="st">"key"</span>],inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>3</code> 필요없는 변수 삭제</p>
-<div id="3d4350b1-f181-4fcb-9da2-f2aa4bff2bdc" class="cell" data-execution_count="88">
+<div id="3d4350b1-f181-4fcb-9da2-f2aa4bff2bdc" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>del_col <span class="op">=</span> [<span class="st">"장학금인원"</span>,<span class="st">"장학금금액"</span>,<span class="st">"학비지원인원"</span>,<span class="st">"학비지원금액"</span>,<span class="st">"인원합계"</span>,<span class="st">"금액합계_x"</span>,<span class="st">"금액합계_y"</span>, <span class="st">"school_code"</span>, <span class="st">"year"</span>,</span>
 <span id="cb16-2"><a href="#cb16-2"></a>            <span class="st">"건수합계"</span>, <span class="st">"지출금액합계"</span>, <span class="st">"금전및 유가증권건수"</span>, <span class="st">"도서및 물품건수"</span>, <span class="st">"수목시설및 재산건수"</span>,<span class="st">"교육청비율"</span>, <span class="st">"자치단체비율"</span>,</span>
 <span id="cb16-3"><a href="#cb16-3"></a>            <span class="st">"금액계"</span>, <span class="st">"비율계"</span>, <span class="st">"분류"</span>]</span>
 <span id="cb16-4"><a href="#cb16-4"></a></span>
 <span id="cb16-5"><a href="#cb16-5"></a>df2.drop(del_col, axis <span class="op">=</span><span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c3747cf2-a584-4a42-9a5d-aceba661a0e9" class="cell" data-execution_count="89">
+<div id="c3747cf2-a584-4a42-9a5d-aceba661a0e9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df2.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -710,10 +716,10 @@ memory usage: 641.6+ KB</code></pre>
 <section id="결측치-채우기" class="level2">
 <h2 class="anchored" data-anchor-id="결측치-채우기">(2) 결측치 채우기</h2>
 <p>결측치는 금액과 관련된 내용이니 전부 <code>0</code>으로 채우자…(실제로 예산을 집행안한 걸 수 도 있으니까…)</p>
-<div id="77719ab4-b3a8-45a2-98c6-ac9321ca4ceb" class="cell" data-execution_count="90">
+<div id="77719ab4-b3a8-45a2-98c6-ac9321ca4ceb" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df2.fillna(<span class="dv">0</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f56f11b1-dc59-43f6-a572-b9275d9a9ce8" class="cell" data-execution_count="91">
+<div id="f56f11b1-dc59-43f6-a572-b9275d9a9ce8" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df2.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -744,17 +750,17 @@ memory usage: 641.6+ KB</code></pre>
 </section>
 <section id="합치기" class="level1">
 <h1>03. 합치기</h1>
-<div id="832b16e4-ef11-4791-9d4b-6ba0270034e8" class="cell" data-execution_count="92">
+<div id="832b16e4-ef11-4791-9d4b-6ba0270034e8" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>del_col <span class="op">=</span> [<span class="st">"정보공시 학교코드"</span>, <span class="st">"학교명"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0563076d-82ed-44ff-94b9-7baaeff76417" class="cell" data-execution_count="93">
+<div id="0563076d-82ed-44ff-94b9-7baaeff76417" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df2.drop(del_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>df3.drop(del_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3aa0b6dd-e0a0-453a-bd8f-bf09a3976180" class="cell" data-execution_count="94">
+<div id="3aa0b6dd-e0a0-453a-bd8f-bf09a3976180" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df3.drop(<span class="st">"지역"</span>, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0486f73e-3548-4305-89aa-d1a369e96560" class="cell" data-execution_count="95">
+<div id="0486f73e-3548-4305-89aa-d1a369e96560" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>temp <span class="op">=</span> pd.merge(df1,df2, on <span class="op">=</span> <span class="st">"key"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2"></a>temp <span class="op">=</span> pd.merge(temp,df3, on <span class="op">=</span> <span class="st">"key"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
 <span id="cb25-3"><a href="#cb25-3"></a>temp <span class="op">=</span> pd.merge(temp,df4, on <span class="op">=</span> <span class="st">"key"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
@@ -763,14 +769,17 @@ memory usage: 641.6+ KB</code></pre>
 </section>
 <section id="합친-데이터-살펴보기" class="level1">
 <h1>04. 합친 데이터 살펴보기</h1>
-<div id="ace5c7dc-428b-4995-b539-c8e00ea57ca5" class="cell" data-execution_count="96">
+<div id="ace5c7dc-428b-4995-b539-c8e00ea57ca5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>temp.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="96">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>(5475, 77)</code></pre>
 </div>
 </div>
+<div id="c3ca3329-7991-48ce-a48d-fc612e3a8832" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>temp.to_csv(<span class="st">"temp.csv"</span>, encoding <span class="op">=</span> <span class="st">"euc-kr"</span>,index<span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div id="d027d7aa-d62b-460d-b770-fdac7ff03b5d" class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">#temp.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">#temp.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="필요없는-컬럼-삭제-1" class="level2">
 <h2 class="anchored" data-anchor-id="필요없는-컬럼-삭제-1">(1) 필요없는 컬럼 삭제 1</h2>
@@ -779,29 +788,29 @@ memory usage: 641.6+ KB</code></pre>
 <li>수업 교원 1인당 학생 수가 있으므로!</li>
 </ul>
 <div id="da8076bb-ea37-41ee-955b-b0a42026e097" class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>d_col <span class="op">=</span> [<span class="st">"일반직계"</span>, <span class="st">"별정직계(2018년이후)"</span>, <span class="st">"기타직계(2019년이후)"</span>]</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a>temp.drop(d_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>d_col <span class="op">=</span> [<span class="st">"일반직계"</span>, <span class="st">"별정직계(2018년이후)"</span>, <span class="st">"기타직계(2019년이후)"</span>]</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a>temp.drop(d_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="필요없는-컬럼-삭제-2" class="level2">
 <h2 class="anchored" data-anchor-id="필요없는-컬럼-삭제-2">(2) 필요없는 컬럼 삭제 2</h2>
 <div id="6f9a73be-4ad4-4c4c-9550-373f715cea1e" class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">#temp.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#temp.info()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 특수, 순회학급, 교사 구분 변수 제외</p>
 <div id="483bdec1-6e63-43ad-bd95-6e61e95a90e4" class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#print(temp.columns.tolist())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">#print(temp.columns.tolist())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="abd40de5-3846-4420-b871-3e8687f6647e" class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>d_col <span class="op">=</span> [<span class="st">'특수학급 학급당 학생수'</span>, <span class="st">'순회학급 학급당 학생수'</span>, <span class="st">'수석교사(계)'</span>, <span class="st">'전문상담교사(계)'</span>, <span class="st">'사서교사(계)'</span>, <span class="st">'보건교사(계)'</span>, <span class="st">'영양교사(계)'</span>]</span>
-<span id="cb32-2"><a href="#cb32-2"></a>temp.drop(d_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>d_col <span class="op">=</span> [<span class="st">'특수학급 학급당 학생수'</span>, <span class="st">'순회학급 학급당 학생수'</span>, <span class="st">'수석교사(계)'</span>, <span class="st">'전문상담교사(계)'</span>, <span class="st">'사서교사(계)'</span>, <span class="st">'보건교사(계)'</span>, <span class="st">'영양교사(계)'</span>]</span>
+<span id="cb33-2"><a href="#cb33-2"></a>temp.drop(d_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="필요없는-컬럼-삭제-3" class="level2">
 <h2 class="anchored" data-anchor-id="필요없는-컬럼-삭제-3">(3) 필요없는 컬럼 삭제 3</h2>
 <div id="5b2472c2-7c5c-4b8d-809e-b824a7d758f6" class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>temp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>temp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 5475 entries, 0 to 5474
@@ -881,37 +890,37 @@ memory usage: 2.8+ MB</code></pre>
 </div>
 <p><code>-</code> 일단 여기까지…</p>
 <div id="3b652710-0b4b-4bdb-975f-427a7500a3d5" class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#pd.DataFrame({"변수" : temp.columns.tolist()}).to_csv("변수명.csv", index = False, encoding = "euc-kr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">#pd.DataFrame({"변수" : temp.columns.tolist()}).to_csv("변수명.csv", index = False, encoding = "euc-kr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="85141e67-d486-4b33-93d6-e0507065f452" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">#temp.to_csv("통합1.csv", index = False, encoding = "euc-kr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#temp.to_csv("통합1.csv", index = False, encoding = "euc-kr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 연간1인당 보건실이용건수는 학교 평가시 별 의미가 없는 변수인 것 같음…..</p>
 <div id="d7d919c9-b068-4da2-8cb0-2501ae14d796" class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="bu">print</span>(temp.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">print</span>(temp.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['key', '지역', '정보공시 학교코드', '학교명', '교과교실제(지정?운영)', '자율학교(지정?운영)', '수준별 수업(운영)', '전체학생수', '연간1인당 보건실이용건수', '수업교원 1인당 학생수', '체육장 개방여부', '체육관 개방여부', '강당 개방여부', '일반교과교실 개방여부', '특별교실 개방여부', '시청각실 개방여부', '체력 1등급 (%)', '체력 2등급 (%)', '체력 3등급 (%)', '체력 4등급 (%)', '체력 5등급 (%)', '교육청금액', '자치단체금액', '보호자금액', '보호자비율', '금전및 유가증권금액', '도서및 물품금액', '수목시설및 재산금액', '학교교육시설 보수확충금액', '교육용기자재 및도서금액', '학교체육학예 활동금액', '학생복지및 자치활동지원금액', '지도교사수-동아리?학생자치활동', '지도교사수-또래활동', '지도교사수-교육주간 활동', '지도교사수-기타 학교폭력 예방활동', '참여학생수-동아리?학생자치활동', '참여학생수-또래활동', '참여학생수-교육주간 활동', '참여학생수-기타 학교폭력 예방활동', '전체학생수_안전교육 계획 및 실시현황', '생활안전교육 시간(단위활동차시)-합계', '교통안전교육 시간(단위활동차시)-합계', '폭력예방및신변보호교육 시간(단위활동차시)-합계', '약물중독예방교육 시간(단위활동차시) - 합계 (2020년 이후)', '지능정보서비스과의존관련교육 시간(단위활동차시) - 합계 (2023년 이후)', '직업안전교육 시간(단위활동차시)-합계', '응급처치교육 시간(단위활동차시)-합계', '주 출입구 접근로 설치여부', '장애인 전용 주차구역 지정여부', '주 출입구 높이차이 제거여부', '출입구(문) 설치유무', '복도', '계단/승강기/경사로/휠체어리프트 유무', '장애인용 대변기 설치여부', '장애인용 소변기 설치여부', '점자블록 설치여부', '유도 및 안내설비 설치여부', '경보 및 피난설비 설치여부', '상담실적(내부상담전문가)', '상담실적(외부상담전문가)', '교수학습공간 일반교실', '교수학습공간 교과교실', '교수학습공간 수준별교실', '교수학습공간 특별교실', '학생자율동아리 동아리수', '창의적체험활동동아리 동아리수']</code></pre>
 </div>
 </div>
 <div id="c04017c5-c9c3-4f70-a4a1-17d0067087ba" class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>del_col <span class="op">=</span> [<span class="st">'체력 1등급 (%)'</span>, <span class="st">'체력 2등급 (%)'</span>, <span class="st">'체력 3등급 (%)'</span>, <span class="st">'체력 4등급 (%)'</span>, <span class="st">'체력 5등급 (%)'</span>,</span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="st">'교육청금액'</span>, <span class="st">'자치단체금액'</span>, <span class="st">'보호자금액'</span>, <span class="st">'금전및 유가증권금액'</span>, <span class="st">'도서및 물품금액'</span>, <span class="st">'수목시설및 재산금액'</span>, <span class="st">'학교교육시설 보수확충금액'</span>, </span>
-<span id="cb39-3"><a href="#cb39-3"></a> <span class="st">'교육용기자재 및도서금액'</span>, <span class="st">'학교체육학예 활동금액'</span>, <span class="st">'학생복지및 자치활동지원금액'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>del_col <span class="op">=</span> [<span class="st">'체력 1등급 (%)'</span>, <span class="st">'체력 2등급 (%)'</span>, <span class="st">'체력 3등급 (%)'</span>, <span class="st">'체력 4등급 (%)'</span>, <span class="st">'체력 5등급 (%)'</span>,</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="st">'교육청금액'</span>, <span class="st">'자치단체금액'</span>, <span class="st">'보호자금액'</span>, <span class="st">'금전및 유가증권금액'</span>, <span class="st">'도서및 물품금액'</span>, <span class="st">'수목시설및 재산금액'</span>, <span class="st">'학교교육시설 보수확충금액'</span>, </span>
+<span id="cb40-3"><a href="#cb40-3"></a> <span class="st">'교육용기자재 및도서금액'</span>, <span class="st">'학교체육학예 활동금액'</span>, <span class="st">'학생복지및 자치활동지원금액'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="6938efde-bfb5-4c26-805a-a8b07c229507" class="cell" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>temp.drop(del_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>temp.drop(del_col, axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cb6066a2-9a59-4457-8f1b-7b47d156fa78" class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>temp.to_csv(<span class="st">"통합2.csv"</span>, encoding <span class="op">=</span> <span class="st">"euc-kr"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>temp.to_csv(<span class="st">"통합2.csv"</span>, encoding <span class="op">=</span> <span class="st">"euc-kr"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="2fefe286-1610-495b-a1dc-038007b8c5b8" class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>temp.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>temp.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="110">
 <pre><code>(5475, 52)</code></pre>
 </div>
 </div>
 <div id="1f8d35dd-f46b-464f-bddd-fadaadde66a3" class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>temp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>temp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 5475 entries, 0 to 5474
